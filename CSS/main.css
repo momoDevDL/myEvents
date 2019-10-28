@@ -1,0 +1,54 @@
+#navbarSupportedContent{
+position: relative;
+left:39%;
+}
+#logButtons{
+    position: relative;
+    left: 35%;
+}
+
+#main-header{
+    height: 70vh;
+    width : 100%;
+    background-color:blue;
+    background-image:url("../IMAGES/architecture-buildings-city-313782.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    /*background-attachment: fixed;*/
+}   
+/*#main-header img{
+    height: 70vh;
+    width : 100%;
+    position: absolute;
+   /* background-image:url("../IMAGES/bg-main.jpg");
+    background-repeat: no-repeat;
+}*/  
+#main-title{
+position: absolute;
+text-align: center;
+left: 30%;
+top:30%;
+border: 5px solid white;
+
+}
+
+#main-title h1{
+    font-family: 'Roboto', sans-serif;
+    font-size: 70px;
+    
+}
+#main-title p{
+    font-family: 'Lobster', sans-serif;
+    font-size: 35px;
+    color: aliceblue;
+    padding-top: 10px;
+}
+#main-content{
+    height:100vh;
+    background-color: wheat ;
+}
+
+footer{
+    height: 40vh;
+    background-color: gray;
+}

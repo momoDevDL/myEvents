@@ -1,3 +1,6 @@
+<?php
+	session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,7 +32,14 @@
                                 </li>
                         </ul>
                         <div id="logButtons">
-                                <button type="button" class="btn btn-primary">LOG IN</button>
+                        		<?php 
+                        			if (isset($_SESSION['id_user'])){
+    									echo "<button type='button' class='btn btn-primary'><a href='logout.php'>LOG OUT</a></button>";
+    								} else {
+    									echo "<button type='button' class='btn btn-primary'><a href='login.php'>LOG IN</a></button>";
+    								}
+                        		?>
+                    
                                 <button type="button" class="btn btn-secondary">SIGN UP</button>
                         </div>
                 </div>
@@ -45,6 +55,11 @@
     </div>
 
     <section id="container" class="main-content">
+    	<?php
+    		if (isset($_SESSION['id_user'])){
+    			echo 'Vous êtes bien connecté Mr/Mme '.$_SESSION['id_user'].'</br>';
+    		}
+    	?>
         <div id="MyRows">
                         <div class="row">
                                         <div class="col-md-2">

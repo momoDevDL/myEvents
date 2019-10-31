@@ -27,7 +27,7 @@
                 
               </nav>
               <!--img src="../IMAGES/bg-main.jpg"-->
-              <div id=main-title>
+              <div id="main-title">
                     <h1>MY EVENTS</h1>
                     <p>We are not the only ones. But We are the best</p>
               </div>

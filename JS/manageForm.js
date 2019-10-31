@@ -3,6 +3,9 @@ var visiteur = document.getElementById('visit');
 var formVisit = document.getElementById('formulaireVisiteur');
 var formContrib = document.getElementById('formulaireContributeur');
 var mainTitle = document.getElementById("main-title");
+
+console.log(mainTitle.getElementsByTagName("H1").innerHTML);
+
 contributeur.addEventListener("click",function(){
     
         /*formVisit.style.visibility = "hidden";

@@ -1,21 +1,47 @@
-#navbarSupportedContent{
-position: relative;
-left:39%;
+body{
+    width:100%;
+    padding-top:0px;
+    margin: 0%;
 }
-#logButtons{
+
+nav{
+    opacity: 0.8;
+    padding: 0%;
+    margin:0%;
+}
+
+ul.navbar-nav{
+    padding-left:40%;
+    padding-right:40%;
+}
+#logButtons button{
     position: relative;
-    left: 35%;
+    /*padding-left: 30%;*/
+    margin-right: 5px;
 }
 
 #main-header{
     height: 70vh;
     width : 100%;
-    background-color:blue;
     background-image:url("../IMAGES/architecture-buildings-city-313782.jpg");
     background-repeat: no-repeat;
     background-size: cover;
    /* background-attachment: fixed;*/
-}   
+} 
+
+#main-signUp-header{
+    height: 100vh;
+    width : 100%;
+    background-color:blue;
+    background-image:url("../IMAGES/architecture-buildings-city-313782.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+   background-attachment: fixed;
+} 
+#logButtons a{
+    color: aliceblue;
+    text-decoration: none;
+}  
 /*#main-header img{
     height: 70vh;
     width : 100%;
@@ -48,6 +74,7 @@ border: 5px solid white;
     background-color: lightgrey ;
     padding-top: 2%;
     width: 100%;
+    /*z-index: 2;*/
 }
 #MyRows{
 position: relative;
@@ -73,4 +100,24 @@ footer{
     height: 40vh;
     background-color: gray;
     position: sticky;
+}
+
+#container-signUp{
+    position: absolute;
+    bottom: 10%;
+    height: 30vh;
+    left:25%;
+    background-color: gray;
+    background: rgba(87, 95, 88, 0.5); 
+    padding: 10px; 
+    text-align:justify;
+    color:white;
+    border: 5px solid white;
+    visibility: hidden;
+}
+
+#type_usr{
+position: absolute;
+bottom: 40%;
+left:40%;
 }

@@ -35,3 +35,4 @@ echo "</div>";
 
 </section>
 <script src="../JS/manageForm.js"></script>
+

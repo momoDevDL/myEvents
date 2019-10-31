@@ -25,3 +25,4 @@ visiteur.addEventListener("click",function(){
         formVisit.style.visibility = "hidden";
     }
 })
+

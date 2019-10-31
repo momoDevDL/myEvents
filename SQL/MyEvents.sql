@@ -87,11 +87,6 @@ CONSTRAINT INSCRIT_PK PRIMARY KEY ( ID_USER,ID_EVENEMENT )
 
 
 
-
-
-
-
-
 -- **************************************   THEME  
 
 CREATE TABLE   THEME  

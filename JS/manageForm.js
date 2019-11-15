@@ -2,27 +2,22 @@ var contributeur = document.getElementById('contrib');
 var visiteur = document.getElementById('visit');
 var formVisit = document.getElementById('formulaireVisiteur');
 var formContrib = document.getElementById('formulaireContributeur');
-var mainTitle = document.getElementById("main-title");
+var mainTitle = document.getElementById('main-SignUp-title');
+var container_C = document.getElementById('container-signUpC');
+var container_V = document.getElementById('container-signUpV');
 
-console.log(mainTitle.getElementsByTagName("H1").innerHTML);
 
 contributeur.addEventListener("click",function(){
-    
-        /*formVisit.style.visibility = "hidden";
-        section.style.visibility = "visible";
-        formContrib.style.visibility = "visible";
-        contributeur.style.visibility = "hidden";*/
-        section.toggle();
-        formContrib.toggle();
-        
-   
+    container_C.style.display = "block";
+    formContrib.style.display = "block";
+    contributeur.style.display= "none";
+    visiteur.style.display= "none";
+           
 })
 
 visiteur.addEventListener("click",function(){
-    if(formVisit.style.visibility === "hidden"){
-        formVisit.style.visibility = "visible";
-    }else{
-        formVisit.style.visibility = "hidden";
-    }
+    container_V.style.display = "block";
+    formVisit.style.display = "block";
+    contributeur.style.display= "none";
+    visiteur.style.display= "none";
 })
-

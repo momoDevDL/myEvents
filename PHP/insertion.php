@@ -1,21 +1,24 @@
 <?php
 require_once('keyLog.php');
-try{
-    $dbh = new PDO("mysql:host=localhost;dbname=myEvents", $user_name, $psswd,array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,));
-    } catch(PDOException $e){
-    echo $e->getMessage() . "</br>";
-    die("Connexion impossible !</br>");
-    }
+require_once('ConnexionBDMomo.php');
 
-    $data = file_get_contents("../SQL/prototype.json",true);
-    $array = json_decode($data,true,512,JSON_INVALID_UTF8_SUBSTITUTE);
+    $data = file_get_contents("../SQL/evenements-publics-openagenda.json",true);
+    $array = json_decode($data,true);
+    $sql = "SELECT * FROM UTILISATEUR WHERE ROLE='CONTRIBUTEUR'";
+    $res = $dbh->query($sql);
+    $createur = array();
+    foreach($res as $row){
+        $createur[] = $row['U_ID'];
+    }   
     print_r($array);
    foreach($array as $row){
-        $sql = "INSERT INTO EVENEMENTS  VALUES('".$row["recordid"]."','2','".$row["fields"]["title"]."', '".$row["fields"]["placename"]."','".$row["fields"]["date_start"]."','".$row["fields"]["date_end"]."','".$row["fields"]["uid"]."')";
+       $index = rand(0,sizeof($createur)-1);
+       $index2 = rand(1,2);
+        $sql = "INSERT INTO EVENEMENTS(E_ID,CREATEUR_ID,TITRE_EVENEMENTS,ADRESSE,LONGITUDE,LATITUDE,DATE_DEBUT,DATE_FIN,ID_THEME)  VALUES('".$row["fields"]["uid"]."','".$createur[$index]."','".$row["fields"]["title"]."', '".$row["fields"]["address"]."', '".$row["fields"]["latlon"][1]."','".$row["fields"]["latlon"][0]."','".$row["fields"]["date_start"]."','".$row["fields"]["date_end"]."','".$index2."')";
         if($dbh->query($sql)){
-            echo" DATA INSERTED CORRECTLY";
+            echo" DATA INSERTED CORRECTLY </br>";
         }else{
-            echo" ERROR ON ";
+            echo" GG ";
         }
     }
 ?>

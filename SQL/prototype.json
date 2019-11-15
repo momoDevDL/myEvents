@@ -3,7 +3,7 @@
     "datasetid": "evenements-publics-openagenda",
      "recordid": "8443a537fa2a0cb8b2d7bb6a42ba707ad4251454",
      "fields":
-     {"latlon": [46.569308, 0.431496999999999],
+     {"latlon": [46.569, 0.4314969],
       "city": "Svres-Anxaumont",
       "date_start": "2019-06-08",
       "uid": "44708726",

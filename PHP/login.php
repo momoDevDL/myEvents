@@ -3,11 +3,13 @@
 	session_start();
     
 	if ($_POST) {
-		require_once 'connexionBD.php'; 
-		extract($_POST);		
+		require_once('connexionBDAntoine.php'); 
+		extract($_POST);
+			
 		$password = md5($password);		
-		$sql="SELECT * FROM COMPTES WHERE ID_COMPTE ='$user_name' AND PASSWORD='$password'";
+		$sql="SELECT * FROM UTILISATEUR WHERE U_ID ='$user_name' AND PASSWORD='$password'";
 		$resultat=$dbh->query($sql);
+		
 		if($resultat){
 			
 			if($resultat->rowCount()==0){
@@ -16,7 +18,7 @@
 			
 			else{
 				$user = $resultat->fetch();
-				$_SESSION['id_user']=$user['USER_ACCOUNT_ID'];
+				$_SESSION['id_user']=$user['U_ID'];
 				header('location:index.php');
 			}
 			if($bdd){
@@ -40,7 +42,7 @@
     </title>
 </head>
 <body>
-	<form action='login.php' method='POST'>
+<form action='login.php' method='POST'>
 		<label>Nom d'utilisateur :</label>
 		<input type="text" name="user_name" placeholder="Nom d'utilisateur " /><br />
 

@@ -14,154 +14,47 @@ require_once('head.php');
     </div>
 
     <section  class="main-content">
-    	<?php
-    		if (isset($_SESSION['id_user'])){
-    			echo 'Vous êtes bien connecté Mr/Mme '.$_SESSION['id_user'].'</br>';
-    		}
-    	?>
-        <div id="MyRows">
-                        <div class="row">
-                                        <div class="col-md-2">
-                                                        <div class="card" style="width: 18rem;">
-                                                                        <img src="../IMAGES/happy-friends-making-cheers-glasses-450w-604422179.jpg" class="card-img-top" alt="event image">
-                                                                                <div class="card-body">
-                                                                                        <h5 class="card-title">Card title</h5>
-                                                                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                                                                        <a href="#" class="btn btn-primary">S'inscrire</a>
-                                                                                </div>
-                                                        </div>
-                                        </div>
-                                        <div class="col-md-2">
-                                                        <div class="card" style="width: 18rem;">
-                                                                        <img src="../IMAGES/hiker-winter-mountains-snowshoeing-450w-164485298.jpg" class="card-img-top" alt="event image">
-                                                                                <div class="card-body">
-                                                                                        <h5 class="card-title">Card title</h5>
-                                                                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                                                                        <a href="#" class="btn btn-primary">S'inscrire</a>
-                                                                                </div>
-                                                        </div>
-                                        </div>
-                                        <div class="col-md-2">
-                                                        <div class="card" style="width: 18rem;">
-                                                                        <img src="../IMAGES/male-hiker-standing-on-rock-450w-1513227257.jpg" class="card-img-top" alt="event image">
-                                                                                <div class="card-body">
-                                                                                        <h5 class="card-title">Card title</h5>
-                                                                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                                                                        <a href="#" class="btn btn-primary">S'inscrire</a>
-                                                                                </div>
-                                                        </div>
-                                        </div>
-                                        <div class="col-md-2">
-                                                        <div class="card" style="width: 18rem;">
-                                                                        <img src="../IMAGES/hiker-winter-mountains-snowshoeing-450w-164485298.jpg" class="card-img-top" alt="event image">
-                                                                                <div class="card-body">
-                                                                                        <h5 class="card-title">Card title</h5>
-                                                                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                                                                        <a href="#" class="btn btn-primary">S'inscrire</a>
-                                                                                </div>
-                                                        </div>
-                                        </div>
-                         </div>  
-                         
-                         <div class="row">
-                                        <div class="col-md-2">
-                                                        <div class="card" style="width: 18rem;">
-                                                                        <img src="../IMAGES/happy-friends-making-cheers-glasses-450w-604422179.jpg" class="card-img-top" alt="event image">
-                                                                                <div class="card-body">
-                                                                                        <h5 class="card-title">Card title</h5>
-                                                                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                                                                        <a href="#" class="btn btn-primary">S'inscrire</a>
-                                                                                </div>
-                                                        </div>
-                                        </div>
-                                        <div class="col-md-2">
-                                                        <div class="card" style="width: 18rem;">
-                                                                        <img src="../IMAGES/hiker-winter-mountains-snowshoeing-450w-164485298.jpg" class="card-img-top" alt="event image">
-                                                                                <div class="card-body">
-                                                                                        <h5 class="card-title">Card title</h5>
-                                                                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                                                                        <a href="#" class="btn btn-primary">S'inscrire</a>
-                                                                                </div>
-                                                        </div>
-                                        </div>
-                                        <div class="col-md-2">
-                                                        <div class="card" style="width: 18rem;">
-                                                                        <img src="../IMAGES/male-hiker-standing-on-rock-450w-1513227257.jpg" class="card-img-top" alt="event image">
-                                                                                <div class="card-body">
-                                                                                        <h5 class="card-title">Card title</h5>
-                                                                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                                                                        <a href="#" class="btn btn-primary">S'inscrire</a>
-                                                                                </div>
-                                                        </div>
-                                        </div>
-                                        <div class="col-md-2">
-                                                        <div class="card" style="width: 18rem;">
-                                                                        <img src="../IMAGES/hiker-winter-mountains-snowshoeing-450w-164485298.jpg" class="card-img-top" alt="event image">
-                                                                                <div class="card-body">
-                                                                                        <h5 class="card-title">Card title</h5>
-                                                                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                                                                        <a href="#" class="btn btn-primary">S'inscrire</a>
-                                                                                </div>
-                                                        </div>
-                                        </div>
-                         </div>  
+    
+        <div id="search_bar">
+            <form method = "post" id="searchForm">
+            <input id = "search_content" type="text" name="search_content" placeholder="Rechercher par : date - lieu - theme">
+            <input id = "search-btn" type="submit" name="search-btn" class="btn btn-danger" value="Rechercher">
+            </form>
+        </div>
 
-                         <div class="row">
-                                        <div class="col-md-2">
-                                                        <div class="card" style="width: 18rem;">
-                                                                        <img src="../IMAGES/happy-friends-making-cheers-glasses-450w-604422179.jpg" class="card-img-top" alt="event image">
-                                                                                <div class="card-body">
-                                                                                        <h5 class="card-title">Card title</h5>
-                                                                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                                                                        <a href="#" class="btn btn-primary">S'inscrire</a>
-                                                                                </div>
-                                                        </div>
-                                        </div>
-                                        <div class="col-md-2">
-                                                        <div class="card" style="width: 18rem;">
-                                                                        <img src="../IMAGES/hiker-winter-mountains-snowshoeing-450w-164485298.jpg" class="card-img-top" alt="event image">
-                                                                                <div class="card-body">
-                                                                                        <h5 class="card-title">Card title</h5>
-                                                                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                                                                        <a href="#" class="btn btn-primary">S'inscrire</a>
-                                                                                </div>
-                                                        </div>
-                                        </div>
-                                        <div class="col-md-2">
-                                                        <div class="card" style="width: 18rem;">
-                                                                        <img src="../IMAGES/male-hiker-standing-on-rock-450w-1513227257.jpg" class="card-img-top" alt="event image">
-                                                                                <div class="card-body">
-                                                                                        <h5 class="card-title">Card title</h5>
-                                                                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                                                                        <a href="#" class="btn btn-primary">S'inscrire</a>
-                                                                                </div>
-                                                        </div>
-                                        </div>
-                                        <div class="col-md-2">
-                                                        <div class="card" style="width: 18rem;">
-                                                                        <img src="../IMAGES/hiker-winter-mountains-snowshoeing-450w-164485298.jpg" class="card-img-top" alt="event image">
-                                                                                <div class="card-body">
-                                                                                        <h5 class="card-title">Card title</h5>
-                                                                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                                                                        <a href="#" class="btn btn-primary">S'inscrire</a>
-                                                                                </div>
-                                                        </div>
-                                        </div>
-                         </div>  
-                         
+        <div id="MyRows">
+                <?php 
+                if(!isset($_POST['search-btn'])){
+                        require_once('fetch_Evenements_Acceuil.php');
+                }
+                ?>
+                       
         </div>
        
-        
+          <div class="showMore">
+            <button id="showMore" class="btn btn-info">Show More</button>
+          </div>
     </section>
 
     <section id="Map">
-
+            <div class="map">
+                <h1 align=center>map</h1>
+            </div>
+            <div class="events">
+               
+            </div>
     </section>
 
-        <?php
+     <?php
         require_once('footer.php');
-        ?>
+    ?>
+
+
+<script src="app.js" type="text/javascript"></script>
+
+
 </body>
+
 </html>
 
 

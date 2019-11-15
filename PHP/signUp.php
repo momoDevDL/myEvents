@@ -2,37 +2,64 @@
 
 require_once('head.php');
 echo "<div id='main-signUp-header'>";
-require_once('header.php');
+require_once('navbar.php');
+echo"<h1 id='main-SignUP-title'>WELCOME</h1>";
 echo "</div>";
 ?>
-<div id="type_usr">
-<button type='button' class='btn btn-primary' id="contrib">Contributeur</button>
-<button type='button' class='btn btn-secondary' id="visit">UTILISATEUR</button>
+
+<div id="userChoice">
+<button type='button' class='btn btn-primary' id="visit"><a href='#'>VISITEUR</a></button>
+ <button type='button' class='btn btn-secondary' id="contrib"><a href='#'>CONTRIBUTEUR</a></button>
 </div>
 
-<section id="container-signUp">
+<div id="container-signUpV" >
 
-<form  action="action.php" id="formulaireVisiteur" method="GET" >
+<form  action="utilisateurSignUp.php"  method="GET"  id="formulaireVisiteur" >
                 
-                <label for="nom" >NOM</label>
-                <input type="text" id="nom" placeholder="DUPONT">
-                <label for="clavier">Clavier logitech(10$)</label>
-                <input value="cl logi" name="clavier" type="text">
+                <!--label for="U_ID" >NOM :</label-->
+                <input type="text" name="U_ID" placeholder="NOM">
+    
+                <!--label for="Pseudo" >PSEUDO :</label-->
+                <input type="text" name="Pseudo" placeholder="PSEUDO">
+                
+                <!--label for="U_ID" >EMAIL :</label-->
+                <input type="email" name="email" placeholder="EMAIL">
 
-                <select id="type Utilisateur" name="disque">
-                    <option value="">Seagate 500 Go</option>
-                    <option value="">Western 750 Go</option>
-                    <option value="">Toshiba 250 Go</option>
-                </select>
+                <!--label for="date_Naiss" >DATE DE NAISSANCE</label-->
+                <input type="text" name="date_Naiss" placeholder=" DATE DE NAISSANCE ( AAAA-MM-JJ )">
+
+                <!--label for="passwd" >MOT DE PASSE</label-->
+                <input type="password" name="passwd" placeholder="MOT DE PASSE">
+                
+                <input id="submit" type="submit" name="formulaireVisiteur" value="SIGN UP">
+</form>
+</div>
+
+<div id="container-signUpC">
+<p>L'inscription des contributeurs se fait uniquement par accord de l'admin</p>
+<form  action="utilisateurSignUp.php" id="formulaireContributeur" method="GET" >
+               
+
+                <input type="text" name="U_ID" placeholder="DUPONT">
+    
+                
+                <input type="text" name="Pseudo" placeholder="DUPONTFX_THE_BEST">
+                
+                
+                <input type="email" name="email" placeholder="DUPONT@-----.fr">
+
+                
+                <input type="text" name="date_Naiss" placeholder="AAAA-MM-JJ">
+
+                
+                <input type="password" name="passwd" placeholder="**************">
+
+                <input type="submit" name="formulaireContributeur" value="SEND TO ADMIN">
 
 </form>
-<form  action="action.php" id="formulaireContributeur" method="GET" >
-                
-                <label for="nom" >NOM</label>
-                <input type="text" id="nom" placeholder="DUPONT">
 
-</form>
-
-</section>
-<script src="../JS/manageForm.js"></script>
-
+</div>
+<script type="text/javascript" src="../JS/manageForm.js"></script>
+<?php
+    require_once('footer.php');
+?>

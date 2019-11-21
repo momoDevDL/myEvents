@@ -44,23 +44,7 @@
                 
                 $count = 0; 
             }
-            /*if($count <= 8 && $max_events>0){
-                if($endOfRow){
-                   echo "</div><div class='row'> ";
-                   $endOfRow=false;
-                }
-                echo "<div class='col-md-2'>
-                <div class='card' style='width: 18rem;'>
-                <img src='../IMAGES/".$image."' class='card-img-top' alt='event image'>
-                        <div class='card-body'>
-                                <h5 class='card-title'>".$res['TITRE_EVENEMENTS']."</h5>
-                                <p class='card-text'>".$res['ADRESSE']."</p>
-                                <a href='#' class='btn btn-primary'>inscription</a>
-                        </div>
-                </div>
-            </div>";
-$count+=1;
-            }*/
+        
         }
         echo"</div>";
     }else{

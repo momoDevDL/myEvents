@@ -13,10 +13,10 @@
             $row = $dbh->query($insert);
             echo "VOUS ETES INSCRIT";
         }else{
-            echo "<p>vous etes deja inscrit a cet evenement impossible de se reinscrire</p> ";
+            echo "<p id='errorInscr' class='btn btn-danger'>vous etes deja inscrit a cet evenement impossible de se reinscrire</p> ";
         }
     }else{
-        echo "<p>vous ne pouvez pas s'inscrire sans authentification</p>";
+        echo "<p id='errorInscr' class = 'btn btn-danger'>vous ne pouvez pas s'inscrire sans authentification</p>";
     }
 
 ?>

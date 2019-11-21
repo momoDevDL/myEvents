@@ -37,11 +37,13 @@ require_once('head.php');
     </section>
 
     <section id="Map">
-            <div class="map">
-                <h1 align=center>map</h1>
+    <img id="markerProto" class="marker" src="../IMAGES/marker.png" width="50" height="50" />
+            <div class="map" id="map">
             </div>
-            <div class="events">
-               
+            <div id="events">
+            <div id="accordion">
+            <?php require_once("fetch_events_accordion.php");?>
+            </div>
             </div>
     </section>
 
@@ -49,10 +51,11 @@ require_once('head.php');
         require_once('footer.php');
     ?>
 
-
+<script src="../JSON/jquery-3.4.1.min.js" type="text/javascript"></script>
+<script src="../JSON/jquery-ui-1.12.1/jquery-ui.js"></script>
+<script src="https://kit.fontawesome.com/08c54fbaa8.js" crossorigin="anonymous"></script>
+<script src="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v6.0.1/build/ol.js"></script>
 <script src="app.js" type="text/javascript"></script>
-
-
 </body>
 
 </html>

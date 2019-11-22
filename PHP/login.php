@@ -19,7 +19,7 @@
 			else{
 				$user = $resultat->fetch();
 				$_SESSION['id_user']=$user['U_ID'];
-				header('location:index.php');
+				header('location:dashboardUser.php');
 			}
 			if($bdd){
    				 $bdd = NULL;

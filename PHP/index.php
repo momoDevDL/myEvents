@@ -7,7 +7,7 @@
 require_once('head.php');
 ?>
 <body>
-   <div id="main-header">
+<div id="main-header">
       <?php
         require_once('header.php');
       ?>

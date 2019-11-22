@@ -11,7 +11,7 @@
         if($res->rowCount() == 0){
             $insert = "INSERT INTO INSCRIT VALUES('$uid','$id')";
             $row = $dbh->query($insert);
-            echo "VOUS ETES INSCRIT";
+            echo "INSCRIT";
         }else{
             echo "<p id='errorInscr' class='btn btn-danger'>vous etes deja inscrit a cet evenement impossible de se reinscrire</p> ";
         }

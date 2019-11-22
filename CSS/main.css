@@ -126,13 +126,13 @@ margin-left: 20%;
     padding-bottom: 2%;
     padding-left: 50px;
 }
-.col-md-4{
+.col-md-2{
     /* width : 100%; */
    /* transition-timing-function: linear;*/
     transition : transform 1s;
 }
 
-.col-md-4:hover{
+.col-md-2:hover{
 transform: translateY(-20px);
 cursor: pointer;
 }
@@ -266,4 +266,90 @@ footer{
     width: 50%;
     height: 50vh;
     float: left;
+}
+
+
+/*********************************************************************************/
+/*-----------------------------CSS de la partie Dashboard------------------*/
+
+#User-header{
+    width:15%;
+    height:100vh;
+    float: left;
+}
+#User-dash{
+    background-color: #343a40;
+    width:100%;
+    height:100%;
+}
+
+.info{
+    background-color:rgb(67, 130, 185);
+    width:100%;
+    height:22vh;
+    color:aliceblue;
+
+}
+
+.info p {
+    position: relative;
+    top:20px;
+    left:20px;
+}
+
+#profilePic{
+    border-radius: 100px;
+    width: 30%;
+    position: relative;
+    top:30px;
+    left: 70px;
+}
+
+#onglets{
+    height: 70vh;
+}
+
+#onglets a{
+    margin-top: 20px;
+    transition: background-color 1s;
+    transition-timing-function: ease;
+    border-radius: 50px;
+    text-align: center;
+}
+#onglets a:hover{
+    background-color: aliceblue;
+}
+
+#logOut{
+    margin-top: 50px;
+    margin-bottom: 5    0px;
+    color: black;
+    text-align: center;
+}
+
+#dashboardFooter{
+    background-color :lightslategrey;
+    margin-top: 100%;
+    height:21vh;
+    color: aliceblue;
+}
+
+#Users-Content{
+    height: 100vh;
+    width:85%;
+    background-color :#343a40;
+    float: right;
+}
+#NoUserEvents{
+    background-color: lightblue;
+    width: 60%;
+    height: 7vh;
+    position: relative;
+    top: 40%;
+    left:20%;
+    text-align: center;
+}
+#NoUserEvents  p{
+    position: relative;
+    top: 20px;
 }

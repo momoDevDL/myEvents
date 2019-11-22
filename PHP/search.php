@@ -15,14 +15,14 @@ if(isset($_POST['search_content'])){
         }
 
         $resultat="<div class='row'> ";
-        $taille = 3;
+        $taille = 5;
         foreach($request as $row){
             if( $taille == 0){
                 $resultat.= "</div> <div class='row'>";
-                $taille = 3;
+                $taille = 5;
                 }
 
-            $resultat.="<div class='col-md-4'>
+            $resultat.="<div class='col-md-2'>
             <div class='card' >";
 
             if($row['IMAGE_URL'] !== ""){

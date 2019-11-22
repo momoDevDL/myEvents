@@ -55,7 +55,7 @@ require_once('head.php');
 <script src="../JSON/jquery-ui-1.12.1/jquery-ui.js"></script>
 <script src="https://kit.fontawesome.com/08c54fbaa8.js" crossorigin="anonymous"></script>
 <script src="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v6.0.1/build/ol.js"></script>
-<script src="app.js" type="text/javascript"></script>
+<script src="../JS/app.js" type="text/javascript"></script>
 </body>
 
 </html>

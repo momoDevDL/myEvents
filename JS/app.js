@@ -23,37 +23,7 @@ $("#searchForm").on('submit',function(e){
     });
 
 
-   /* $(".row").each(function(){
-        $(this).on('submit','.InscriptionForm',function(e){
-                e.preventDefault();
-                var obj = $(this);
-                var formData = 'inscriptionButtonID=' + $(this).find(">:first").val();
-                console.log(formData);
-                    $.ajax({
-                            url : "inscription_events.php",
-                            method : "POST",
-                            data :formData,
-                            dataType: "text",
-                            success:function(data){
-                            console.log("retour de script : "+data);
-                            if(data != "VOUS ETES INSCRIT"){
-                            obj.append(data);
-                            }else{
-                            obj.find("input[name='inscriptionButton']").val(data) ;
-                                }
-                            },
-                            complete:function(data){
-                                console.log(data);
-                            },
-                            error: function(data){
-                                    console.log('error');
-                                    console.log(data);
-                            }
-                            
-                    });
-            });
-    })*/
-
+ 
         $("#MyRows").on('submit',".InscriptionForm",function(e){
                 e.preventDefault();
                 var obj = $(this);

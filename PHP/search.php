@@ -15,16 +15,22 @@ if(isset($_POST['search_content'])){
         }
 
         $resultat="<div class='row'> ";
-        $taille = 4;
+        $taille = 3;
         foreach($request as $row){
             if( $taille == 0){
-                $resultat = "</div> <div class='row'>";
-                $taille = 4;
-         }   
-            $resultat.="<div class='col-md-2'>
-            <div class='card' style='width: 18rem;'>
-            <img src='../IMAGES/".$images[$row['ID_THEME']]."' class='card-img-top' alt='event image'>
-                    <div class='card-body'>
+                $resultat.= "</div> <div class='row'>";
+                $taille = 3;
+                }
+
+            $resultat.="<div class='col-md-4'>
+            <div class='card' >";
+
+            if($row['IMAGE_URL'] !== ""){
+                $resultat .= "<img src='".$row['IMAGE_URL']."' class='card-img-top' alt='event image'>";
+            }else{
+                $resultat .= "<img src='../IMAGES/".$images[$row['ID_THEME']]."' class='card-img-top' alt='event image'>";
+            }
+             $resultat .= " <div class='card-body'>
                             <h5 class='card-title'>".$row['TITRE_EVENEMENTS']."</h5>
                             <p class='card-text'>".$row['ADRESSE']."</p>
                             <form method='post' class='InscriptionForm'>

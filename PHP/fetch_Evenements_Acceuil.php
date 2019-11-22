@@ -18,12 +18,16 @@
     if($row){
         echo "<div class='row'> ";
         foreach($row as $res){
-            if($count <= 4 ){
-                
-                echo "<div class='col-md-2'>
-                <div class='card' style='width: 18rem;'>
-                <img src='../IMAGES/".$images[$res['ID_THEME']]."' class='card-img-top' alt='event image'>
-                        <div class='card-body'>
+            if($count <= 2 ){
+                echo "<div class='col-md-4'>
+                <div class='card' >";
+
+                if($res['IMAGE_URL'] !== ""){
+                    echo"<img src='".$res['IMAGE_URL']."' class='card-img-top' alt='event image'>";
+                }else{
+                    echo"<img src='../IMAGES/".$images[$res['ID_THEME']]."' class='card-img-top' alt='event image'>";
+                }
+                    echo"<div class='card-body'>
                                 <h5 class='card-title'>".$res['TITRE_EVENEMENTS']."</h5>
                                 <p class='card-text'>".$res['ADRESSE']."</p>
                                 <form method='post' class='InscriptionForm'>

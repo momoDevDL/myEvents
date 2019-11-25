@@ -1,4 +1,4 @@
-<nav id="User-dash">   
+  
     <div class="info">
         <?php 
             echo "<p id='pseudo'> Bienvenue " . $_SESSION['id_user'] ."</p>";
@@ -17,5 +17,3 @@
         <p>ALL COPYRIGHTS RESERVED</p>  
     </footer>
     </div>
-
-</nav>

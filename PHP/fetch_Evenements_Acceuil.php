@@ -57,6 +57,9 @@
     }else{
         $resultat .= "la requete a echoué";
     }
+    $resultat .="<div class='showMore'>
+    <button id='showMore' class='btn btn-info'>Show More</button>
+  </div>" ;
     echo $resultat;
 
 ?>

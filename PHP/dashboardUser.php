@@ -9,16 +9,19 @@ require_once('head.php');
 ?>
 
 <body> 
-<div id="User-header">
+<div id="User-dash">
+  <div id="User-header">
 <?php
         require_once('UserNav.php');
       ?>
-</div>
-<section id="Users-Content">
+  </div>
+      <section id="Users-Content">
       <?php
         require_once('fetch_events_user.php');
       ?>
-</section>
+      </section>
+</div>
+
 <script src="../JSON/jquery-3.4.1.min.js" type="text/javascript"></script>
 <script src="../JS/dashboard.js"></script>
 

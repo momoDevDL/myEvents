@@ -7,7 +7,7 @@ $(document).ready(function(){
                 "transition-timing-function": "ease",
                 "border-radius": "50px",
                 "text-align": "center",
-                "background-color": "aliceblue"})
+                "background-color": "#343a40"})
         });
 
         $(this).on('mouseout',function(){
@@ -149,5 +149,15 @@ $(document).ready(function(){
             });
     });
     
+    
+        
+
+       
+$('body').on('click',"#showMore",function(){
+    let rows = document.querySelectorAll(".row[style='display :none;']");
+    rows[0].removeAttribute("style");
+    /*rows[1].removeAttribute("style");*/
+});
+
     $(".nav-link[data-active='true']").css("background-color","white");   
 });

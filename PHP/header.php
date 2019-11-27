@@ -33,9 +33,11 @@ require_once('navbar.php');
                               <button type="button" class="btn btn-secondary"><a href='index.php'>return</a></button>
 	                  </form>
                         <form  id="signUpForm" action="utilisateurSignUp.php"  method="GET"  id="formulaireVisiteur"  style="display:none" >
-                
-                
-                              <input type="text" name="U_ID" placeholder="NOM">
+                        <p>Please select your Role:</p>
+                        <input type="radio" name="Contributor" value="Contributor">Contributor
+                        <input type="radio" name="EventsSurfer" value="EventSurfer">EventsSurfer
+
+                        <input type="text" name="U_ID" placeholder="NOM">
     
                 
                                <input type="text" name="Pseudo" placeholder="PSEUDO">

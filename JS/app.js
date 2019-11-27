@@ -35,13 +35,14 @@ $("#searchForm").on('submit',function(e){
                     data :formData,
                     dataType: "text",
                     success:function(data){
-                    console.log("retour de script : "+data);
-                    if(data != "VOUS ETES INSCRIT"){
-                    obj.append(data);
-                    }else{
-                    obj.find("input[name='inscriptionButton']").val(data) ;
-                        }
-                    },
+                        console.log("retour de script : "+data);
+                        if(data != "INSCRIT"){
+                        obj.append(data);
+                        alert("VOUS NE POUVEZ PAS S'INSCRIRE SANS AUTHENTIFICATION");
+                        }else{
+                        obj.find("input[name='inscriptionButton']").val(data) ;
+                            }
+                        },
                     complete:function(data){
                         console.log(data);
                     },

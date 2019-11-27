@@ -95,14 +95,14 @@ $(document).ready(function(){
                     data :formData,
                     dataType: "text",
                     success:function(data){
-                    console.log("retour de script : "+data);
-                    if(data != "INSCRIT"){
-                    obj.append(data);
-                    alert("VOUS ETES DEJA INSCRIT A CET EVENEMENT");
-                    }else{
-                    obj.find("input[name='inscriptionButton']").val(data) ;
-                        }
-                    },
+                        console.log("retour de script : "+data);
+                        if(data != "INSCRIT"){
+                        obj.append(data);
+                        alert("VOUS ETES DEJA INSCRIT A CET EVENEMENT");
+                        }else{
+                        obj.find("input[name='inscriptionButton']").val(data) ;
+                            }
+                        },
                     complete:function(data){
                         console.log(data);
                     },

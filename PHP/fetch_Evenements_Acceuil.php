@@ -21,7 +21,7 @@
     if($row){
         $resultat .= "<div class='row'> ";
         foreach($row as $res){
-            if($count <= 4 ){
+            if($count <= 5 ){
                 $resultat .="<div class='col-md-2'>
                 <div class='card' >";
 

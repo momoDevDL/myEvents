@@ -173,15 +173,15 @@ cursor: pointer;
 
 #eventInfoContent{
     width: 50%;
-    height:75vh;
-    background-color:rgba(219, 228, 236, 0.959);
+    height:80vh;
+    background-color: goldenrod;
     position: relative;
     top: 10%;
     left: 25%;
     border-radius: 10px;
     z-index: 3;
     bottom: 50%;
-    color: rgb(3, 50, 92);
+    color:white;
 }
 
 #moreInfo{
@@ -241,6 +241,16 @@ footer{
 /*********************************************************************************/
 /*-----------------------------CSS de la partie PopUp------------------*/
 
+#circle{
+    width: 30px;
+    height: 30px;
+    background-color:white;
+    border-radius: 100px;
+    position: relative;
+    left: 92%;
+    bottom: 36px;
+    z-index: 0;
+}
 
 #popUp-bg{
     width: 100%;
@@ -273,18 +283,16 @@ footer{
 #popUpClose{
     font-size: 30px;
     position: relative;
-    left:95% ;
+    left:92% ;
     width: 30px;
     cursor: pointer;
-    color: aliceblue;
+    color:rgb(36, 142, 235);
     padding-left: 5px;
-    transition:background-color 1s;
-    transform:rotate(45);
+    transition: transform 0.3s;
+    z-index: 1;
 }
 #popUpClose:hover{
-    background-color:rgb(3, 50, 92) ;
-    border-radius: 100px;
-    transform: rotate(45);
+    transform: rotate(45deg);
 }
 #þopUpContent form{
     width: 100%;

@@ -20,6 +20,7 @@ require_once('head.php');
       <div id='eventInfo'style="display:none;">
                 <div id="eventInfoContent">
                 <div id="popUpClose">+</div>
+                <div id="circle">  </div>
                 </div>
        </div>
       <div id="search_bar">

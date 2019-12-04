@@ -10,6 +10,7 @@ require_once('head.php');
 <div id="popUp-bg" >
         <div id="popUpContent">
         <div id="popUpClose">+</div>
+        <div id="circle">  </div>
                       <form id="logInForm" action='login.php' method='POST' style="display:none">
 		                  
 		                  <input type="text" name="user_name" placeholder="Nom d'utilisateur " /><br />
@@ -57,6 +58,7 @@ require_once('head.php');
     <div id='eventInfo'style="display:none;">
                 <div id="eventInfoContent">
                 <div id="popUpClose">+</div>
+                <div id="circle">  </div>
                 </div>
         </div>
     <div id="search_bar">

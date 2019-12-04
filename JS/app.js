@@ -100,7 +100,7 @@ $("#searchForm").on('submit',function(e){
                         console.log("retour de script : "+data);
                         if(data != "INSCRIT"){
                         obj.append(data);
-                        alert("VOUS NE POUVEZ PAS S'INSCRIRE SANS AUTHENTIFICATION");
+                        alert("VOUS NE POUVEZ PAS VOUS INSCRIRE SANS AUTHENTIFICATION");
                         }else{
                         obj.find("input[name='inscriptionButton']").val(data) ;
                             }
@@ -136,16 +136,7 @@ var map = new ol.Map({
             zoom : 14
         })
     });
-    
-/*var markerId = document.getElementById("markerProto");
-    
-map.addOverlay(new ol.Overlay(
-            {
-                position : ol.proj.fromLonLat([3.876716,43.610769]),
-                element : markerId
-            }
-        )
-    );*/
+  
 
 
     $(document).ready(function(){
@@ -233,13 +224,7 @@ map.addOverlay(new ol.Overlay(
                 document.getElementById("popUp-bg").style.display = "none";
         });
         /*------------------------------------------------------------------ */
-       /* function showMoreRows(counter){
-                return function(){
-                console.log( ":clicked" + counter);
-                rows[counter++].removeAttribute("style");
-                rows[counter++].removeAttribute("style");
-                }
-        }*/
+       
             
         $('body').on('click',"#showMore",function(){
                 let rows = document.querySelectorAll(".row[style='display :none;']");
@@ -269,7 +254,6 @@ map.addOverlay(new ol.Overlay(
 
         initializeArrayOfMarkers();
         console.log(arrayOfMarkers);
-       // console.log($("#markerProto"));
          
        // console.log($("#marker! ANNULÉ ! ATELIERS LES PETITES POUSSES    - Mon jardin portatif.marker'"));
         /*------------------------------------------------------------------ */

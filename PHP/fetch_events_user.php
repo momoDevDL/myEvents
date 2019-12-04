@@ -1,12 +1,15 @@
 <?php
     require_once('keyLog.php');
 
-    require_once('ConnexionBDMomo.php');
+    require_once('ConnexionBDAntoine.php');
     
     if(!isset($_SESSION)){session_start();}
     $User_id = isset($_SESSION['id_user']) ? $_SESSION['id_user'] : 0;
-    
-    $sql = "SELECT * FROM INSCRIT,EVENEMENTS WHERE ID_EVENEMENT = E_ID AND ID_USER = '$User_id' ";
+    if($_SESSION['id_role']=="CONTRIBUTEUR"){
+      	$sql = "SELECT * FROM EVENEMENTS WHERE CREATEUR_ID = '$User_id' ";
+    }else {
+    	$sql = "SELECT * FROM INSCRIT,EVENEMENTS WHERE ID_EVENEMENT = E_ID AND ID_USER = '$User_id' ";
+    }
     $sql2 = "SELECT * FROM IMAGES";
     $row = $dbh->query($sql);
     $row2 = $dbh->query($sql2);
@@ -15,7 +18,7 @@
         $images[$img['THEME']] = $img['NOM']  ;
     }
     $resultat = "";
-   /* $resultat.="<div id='popUp-bg' >
+    $resultat.="<div id='popUp-bg' >
     <div id='popUpContent'>
     <div id='AjoutEventPopUpClose'>+</div>
                   <form id='logInForm' method='POST' style='display:none'>
@@ -26,7 +29,7 @@
                       <input type='password' name='password' placeholder='Mot de passe ' /><br />
 
                   </form></div></div>";
-    $resultat .= "<button id='ajoutEve nt' type='button' class='btn btn-secondary'>AJouter un Event</button>";*/
+    $resultat .= "<button id='ajoutEvent' type='button' class='btn btn-secondary'>Ajouter un Event</button>";
     $max_events = 8;
     $count = 0;
     $endOfRow = true;
@@ -44,10 +47,21 @@
                     $resultat .= "<div class='card-body'>
                                 <h5 class='card-title'>".$res['TITRE_EVENEMENTS']."</h5>
                                 <p class='card-text'>".$res['ADRESSE']."</p>
-                                <form method='post' class='DesinscriptionForm'>
-                                <input type='hidden' name='hidden' value='".$res['E_ID']."'>
-                                <input id='".$res['E_ID']."' type='submit' name='DesinscriptionButton' class='btn btn-danger' value='Se desinscrire'>
-                                </form>
+                                ";
+                                if(($_SESSION['id_role']=="CONTRIBUTEUR")||($_SESSION['id_role']=="ADMIN")){
+                                	$resultat .="<form method='post' class='SuppressionForm'>
+                                				<input type='hidden' name='hidden' value='".$res['E_ID']."'>
+                                				<input id='".$res['E_ID']."' type='submit' name='SuppressionButton' class='btn btn-danger' value='Supprimer'>
+                                				</form>
+                                				";
+                                } else {
+                                	$resultat .="<form method='post' class='DesinscriptionForm'>
+                                				<input type='hidden' name='hidden' value='".$res['E_ID']."'>
+                                				<input id='".$res['E_ID']."' type='submit' name='DesinscriptionButton' class='btn btn-danger' value='Se desinscrire'>
+                                				</form>
+                                				";
+                                }
+                                $resultat .="
                         </div>
                 </div>
             </div>";

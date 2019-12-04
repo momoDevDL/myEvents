@@ -1,7 +1,7 @@
 <?php
     require_once('keyLog.php');
 
-    require_once('ConnexionBDMomo.php');
+    require_once('ConnexionBDAntoine.php');
     if(!isset($_SESSION)){session_start();}
     $User_id = isset($_SESSION['id_user']) ? $_SESSION['id_user'] : 0;
     if($User_id){
@@ -23,6 +23,7 @@
     $count = 0;
     $endOfRow = true;   
     $resultat = " ";
+    $inscrire = "Inscription";
     if($row){
         $resultat .= "<div class='row'> ";
         foreach($row as $res){
@@ -37,10 +38,20 @@
                 }
                     $resultat .= "<div class='card-body'>
                                 <h5 class='card-title'>".$res['TITRE_EVENEMENTS']."</h5>
-                                <p class='card-text'>".$res['ADRESSE']."</p>
-                                <form method='post' class='InscriptionForm'>
+                                <p class='card-text'>".$res['ADRESSE']."</p>";
+                                if($_SESSION['id_role']=="ADMIN"){
+                                	$resultat .="<form method='post' class='SuppressionForm'>
+                                				<input type='hidden' name='hidden' value='".$res['E_ID']."'>
+                                				<input id='".$res['E_ID']."' type='submit' name='SuppressionButton' class='btn btn-danger' value='Supprimer'>
+                                				</form>
+                                				";
+                                }else if (($_SESSION['id_role']=="VISITEUR")||(!isset($_SESSION['id_role']))){
+                                	$resultat .= "<form method='post' class='InscriptionForm'>
                                 <input type='hidden' name='hidden' value='".$res['E_ID']."'>
-                                <input id='".$res['E_ID']."' type='submit' name='inscriptionButton' class='btn btn-primary' value='S`inscrire'>
+                                <input id='".$res['E_ID']."' type='submit' name='inscriptionButton' class='btn btn-primary' value='".$inscrire."'>";
+                                
+                                }
+                                $resultat .= "
                                 </form>
                         </div>
                 </div>

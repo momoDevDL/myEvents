@@ -4,7 +4,7 @@
     
 	if ($_POST) {
 		require_once('keyLog.php');
-		require_once('ConnexionBDMomo.php'); 
+		require_once('ConnexionBDAntoine.php'); 
 		extract($_POST);
 			
 		$password = md5($password);		
@@ -15,11 +15,13 @@
 			
 			if($resultat->rowCount()==0){
 				echo 'Utilisateur ou mot de passe incorrecte';
+				header('location:index.php');
 			}
 			
 			else{
 				$user = $resultat->fetch();
 				$_SESSION['id_user']=$user['U_ID'];
+				$_SESSION['id_role']=$user['ROLE'];
 				header('location:dashboardUser.php');
 			}
 			if($bdd){
@@ -43,16 +45,7 @@
     </title>
 </head>
 <body>
-<form action='login.php' method='POST'>
-		<label>Nom d'utilisateur :</label>
-		<input type="text" name="user_name" placeholder="Nom d'utilisateur " /><br />
 
-		<label>Mot de passe :</label>
-		<input type="password" name="password" placeholder="Mot de passe " /><br />
-
-		<input type="submit" value="Se connecter" >
-	</form>
-	<button type="button" ><a href='index.php'>return</a></button>
 </body>
 
 </html>

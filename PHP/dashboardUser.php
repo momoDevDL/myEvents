@@ -31,7 +31,14 @@ require_once('head.php');
       </div>
       <div id="MyRows">
       <?php
-        require_once('fetch_events_user.php');
+        if (isset($_SESSION['id_role'])){
+      		if($_SESSION['id_role']=="ADMIN"){
+      			require_once('fetch_Evenements_Acceuil.php');
+      			//require_once('fetch_contributors_request.php');
+      		}else{
+      			require_once('fetch_events_user.php');
+      		}
+      	}
       ?>
       </div>
       

@@ -2,7 +2,7 @@
 
 if(isset($_POST['search_content'])){
         require_once('keyLog.php');
-        require_once('ConnexionBDMomo.php');
+        require_once('ConnexionBDAntoine.php');
         
         $titre = $_POST['search_content'];
         $sql = "SELECT * FROM EVENEMENTS WHERE TITRE_EVENEMENTS LIKE '%$titre%'";

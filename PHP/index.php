@@ -78,9 +78,6 @@ require_once('head.php');
                        
         </div>
        
-        <!--div class="showMore">
-            <button id="showMore" class="btn btn-info">Show More</button>
-          </div-->
     </section>
 
     <section id="Map">

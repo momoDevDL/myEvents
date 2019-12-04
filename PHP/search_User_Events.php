@@ -3,14 +3,17 @@
 if(isset($_POST['search_content'])){
     require_once('keyLog.php');
 
-    require_once('ConnexionBDMomo.php');
+    require_once('ConnexionBDAntoine.php');
     
     if(!isset($_SESSION)){session_start();}
     $User_id = isset($_SESSION['id_user']) ? $_SESSION['id_user'] : 0;
 
     $titre = $_POST['search_content'];
-
-    $sql = "SELECT * FROM INSCRIT,EVENEMENTS WHERE ID_EVENEMENT = E_ID AND ID_USER = '$User_id' AND TITRE_EVENEMENTS LIKE '%$titre%'";
+	if($_SESSION['id_role']=="CONTRIBUTEUR"){
+      	$sql = "SELECT * FROM EVENEMENTS WHERE CREATEUR_ID = '$User_id' AND TITRE_EVENEMENTS LIKE '%$titre%' ";
+    }else {
+    	$sql = "SELECT * FROM INSCRIT,EVENEMENTS WHERE ID_EVENEMENT = E_ID AND ID_USER = '$User_id' AND TITRE_EVENEMENTS LIKE '%$titre%' ";
+    }
     $sql2 = "SELECT * FROM IMAGES";
     $row = $dbh->query($sql);
     $row2 = $dbh->query($sql2);

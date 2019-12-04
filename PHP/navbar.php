@@ -10,11 +10,6 @@
                                         <a class="nav-link" href="contact.php">Contact Us</a>   
                                 </li>
                         </ul>
-                       <?php
-    		        if (isset($_SESSION['id_user'])){
-    			        echo '<p id="welcome_text">Bienvenue '.$_SESSION['id_user'].'</p>';
-    		        }
-    	                ?>
                 </div>
                 
 </nav>

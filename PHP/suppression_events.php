@@ -3,13 +3,18 @@
 
 
     if(isset($_SESSION['id_user'])){
-        $id = $_POST['DesinscriptionButtonID'];
+        $id = $_POST['SuppressionButtonID'];
         $uid = $_SESSION['id_user'];
         require_once('keyLog.php');
         require_once('ConnexionBDAntoine.php');
-        $sql ="DELETE FROM INSCRIT WHERE ID_EVENEMENT = '$id' AND ID_USER  = '$uid' ";
-        $res = $dbh->query($sql); 
-        $sql2 = "SELECT * FROM INSCRIT,EVENEMENTS WHERE ID_EVENEMENT = E_ID AND ID_USER = '$uid' ";
+        $sql ="DELETE FROM EVENEMENTS WHERE E_ID = '$id'";
+        $res2 = $dbh->query($sql); 
+        if ($_SESSION['id_role']=='ADMIN'){
+        	$sql2 = "SELECT * FROM EVENEMENTS ";
+        }else {
+        	$sql2 = "SELECT * FROM EVENEMENTS WHERE CREATEUR_ID = '$uid' ";
+        }
+        
         $sql3 = "SELECT * FROM IMAGES";
         $row = $dbh->query($sql2);
         $row2 = $dbh->query($sql3);
@@ -24,20 +29,20 @@
     if($row){
         $resultat .= "<div class='row'> ";
         foreach($row as $res){
-            if($count <=  5 ){
+            if($count <=  4 ){
                 $resultat .= "<div class='col-md-2'><div class='card' >";
 
                 if($res['IMAGE_URL'] !== ""){
-                    $resultat .="<img src='".$res['IMAGE_URL']."' class='card-img-top' alt='event image'>";
+                    $resultat .="<img src='../".$res['IMAGE_URL']."' class='card-img-top' alt='event image'>";
                 }else{
                     $resultat .= "<img src='../IMAGES/".$images[$res['ID_THEME']]."' class='card-img-top' alt='event image'>";
                 }
                     $resultat .= "<div class='card-body'>
                                 <h5 class='card-title'>".$res['TITRE_EVENEMENTS']."</h5>
                                 <p class='card-text'>".$res['ADRESSE']."</p>
-                                <form method='post' class='DesinscriptionForm'>
+                                <form method='post' class='SuppressionForm'>
                                 <input type='hidden' name='hidden' value='".$res['E_ID']."'>
-                                <input id='".$res['E_ID']."' type='submit' name='DesinscriptionButton' class='btn btn-danger' value='Se desinscrire'>
+                                <input id='".$res['E_ID']."' type='submit' name='SuppressionButton' class='btn btn-danger' value='Supprimer'>
                                 </form>
                         </div>
                 </div>
@@ -59,9 +64,6 @@
     }else{
         $resultat .= "la requete a echoué";
     }
-    $resultat .="<div class='showMore'>
-    <button id='showMore' class='btn btn-info'>Show More</button>
-  </div>" ;
     echo $resultat;
 
 

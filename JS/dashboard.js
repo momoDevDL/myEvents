@@ -8,7 +8,7 @@ $(document).ready(function(){
         }
     });
 
-/*    $("body").on('click',"#AjoutEventPopUpClose",function(e){
+    $("body").on('click',"#AjoutEventPopUpClose",function(e){
         e.preventDefault();
         //document.getElementById("popUp-bg").innerHTML= "<div id='popUpClose'>+</div>";
         if(document.getElementById("popUp-bg").style.display == "block" ){
@@ -22,7 +22,7 @@ $(document).ready(function(){
         document.getElementById("popUp-bg").style.display = "block";
         document.getElementById("logInForm").style.display = "block";
         
-});*/
+});
     
 
     $("#MyRows").on('click',".card-img-top",function(e){
@@ -307,6 +307,60 @@ $(document).ready(function(){
             });               
     });
     
+    $('body').on('click',"#AllContributors",function(e){
+        e.preventDefault();
+        console.log($(this).css("background-color"));
+        $(".nav-link").each(function(){
+            $(this).attr("data-active","false");
+            $(this).css("background-color","transparent");  
+        });
+        $(this).attr("data-active","true");
+        $(this).css("background-color","white");
+            $.ajax({
+                    url : "fetch_contributors.php",
+                    method : "POST",
+                    dataType: "text",
+                    success:function(data){
+                    $("#Users-Content").html(data);
+                    },
+                    complete:function(data){
+                        console.log(data);
+                    },
+                    error: function(data){
+                            console.log('error');
+                            console.log(data);
+                    }
+                    
+            });               
+    });
+    
+    $('body').on('click',"#ContributorsRequests",function(e){
+        e.preventDefault();
+        console.log($(this).css("background-color"));
+        $(".nav-link").each(function(){
+            $(this).attr("data-active","false");
+            $(this).css("background-color","transparent");  
+        });
+        $(this).attr("data-active","true");
+        $(this).css("background-color","white");
+            $.ajax({
+                    url : "fetch_contributors_add_request.php",
+                    method : "POST",
+                    dataType: "text",
+                    success:function(data){
+                    $("#Users-Content").html(data);
+                    },
+                    complete:function(data){
+                        console.log(data);
+                    },
+                    error: function(data){
+                            console.log('error');
+                            console.log(data);
+                    }
+                    
+            });               
+    });
+   
     $('body').on('click',"#OurContributors",function(e){
         e.preventDefault();
         console.log($(this).css("background-color"));
@@ -320,7 +374,7 @@ $(document).ready(function(){
         "color":"white"}); 
         $("#search_bar").css("display","none");
             $.ajax({
-                    url : "fetch_contributors_add_request.php",
+                    url : "fetch_contributors.php",
                     method : "POST",
                     dataType: "text",
                     success:function(data){
@@ -443,7 +497,71 @@ $(document).ready(function(){
     });
     
     
-        
+        $("body").on('submit',".SuppressionForm",function(e){
+    e.preventDefault();
+    var obj = $(this);
+    var formData = 'SuppressionButtonID=' + $(this).find(">:first").val();
+    console.log(formData);
+        $.ajax({
+                url : "suppression_events.php",
+                method : "POST",
+                data :formData,
+                dataType: "text",
+                success:function(data){
+                console.log("retour de script : "+data);
+                if(data !== "<div class='row'> </div>"){
+                    console.log(data);
+                    $("#Users-Content").html(data);
+                    }else{
+                        let html = "<div id='NoUserEvents'><p>Vous n'avez aucun evenements actuellement Veuillez consulter nos evenements dans l'ongler 'ALL EVENTS'</p></div>";
+                        $("#Users-Content").html(html);
+                        console.log(html);
+                    }
+
+                },
+                complete:function(data){
+                    console.log(data);
+                },
+                error: function(data){
+                        console.log('error');
+                        console.log(data);
+                }
+                    
+            });
+    });
+
+    $("body").on('submit',".SuppressionContributeurForm",function(e){
+    e.preventDefault();
+    var obj = $(this);
+    var formData = 'SuppressionContributeurButtonID=' + $(this).find(">:first").val();
+    console.log(formData);
+        $.ajax({
+                url : "suppression_Contributeur.php",
+                method : "POST",
+                data :formData,
+                dataType: "text",
+                success:function(data){
+                console.log("retour de script : "+data);
+                if(data !== "<div class='row'> </div>"){
+                    console.log(data);
+                    $("#Users-Content").html(data);
+                    }else{
+                        let html = "<div id='NoUserEvents'><p>Vous n'avez aucun evenements actuellement Veuillez consulter nos evenements dans l'ongler 'ALL EVENTS'</p></div>";
+                        $("#Users-Content").html(html);
+                        console.log(html);
+                    }
+
+                },
+                complete:function(data){
+                    console.log(data);
+                },
+                error: function(data){
+                        console.log('error');
+                        console.log(data);
+                }
+                    
+            });
+    });     
 
        
 $('body').on('click',"#showMore",function(){

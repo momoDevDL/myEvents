@@ -15,13 +15,25 @@
         $images[$img['THEME']] = $img['NOM']  ;
     }
     $resultat = "";
+   /* $resultat.="<div id='popUp-bg' >
+    <div id='popUpContent'>
+    <div id='AjoutEventPopUpClose'>+</div>
+                  <form id='logInForm' method='POST' style='display:none'>
+                      
+                      <input type='text' name='user_name' placeholder='Nom d'utilisateur ' /><br />
+                          
+                      
+                      <input type='password' name='password' placeholder='Mot de passe ' /><br />
+
+                  </form></div></div>";
+    $resultat .= "<button id='ajoutEve nt' type='button' class='btn btn-secondary'>AJouter un Event</button>";*/
     $max_events = 8;
     $count = 0;
     $endOfRow = true;
     if($row){
         $resultat .= "<div class='row'> ";
         foreach($row as $res){
-            if($count <=  4 ){
+            if($count <=  5 ){
                 $resultat .= "<div class='col-md-2'><div class='card' >";
 
                 if($res['IMAGE_URL'] !== ""){

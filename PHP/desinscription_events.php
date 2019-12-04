@@ -26,7 +26,7 @@
     if($row){
         $resultat .= "<div class='row'> ";
         foreach($row as $res){
-            if($count <=  4 ){
+            if($count <=  5 ){
                 $resultat .= "<div class='col-md-2'><div class='card' >";
 
                 if($res['IMAGE_URL'] !== ""){
@@ -61,6 +61,9 @@
     }else{
         $resultat .= "la requete a echoué";
     }
+    $resultat .="<div class='showMore'>
+    <button id='showMore' class='btn btn-info'>Show More</button>
+  </div>" ;
     echo $resultat;
 
 

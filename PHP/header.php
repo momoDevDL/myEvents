@@ -19,7 +19,7 @@ require_once('navbar.php');
                   </div>
               </div>
 
-              <div id="popUp-bg" >
+              <!--div id="popUp-bg" >
                     <div id="popUpContent">
                         <div id="popUpClose">+</div>
                           <form id="logInForm" action='login.php' method='POST' style="display:none">
@@ -51,7 +51,7 @@ require_once('navbar.php');
                               <input id="submit" class="btn btn-secondary" type="submit" name="formulaireVisiteur" value="SIGN UP">
                         </form>
                     </div>
-              </div>
+              </div-->
             
 </header>
 

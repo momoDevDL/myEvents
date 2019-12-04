@@ -9,7 +9,7 @@ require_once('head.php');
 <body>
 <div id="popUp-bg" >
         <div id="popUpContent">
-              <div id="popUpClose">+</div>
+        <div id="popUpClose">+</div>
                       <form id="logInForm" action='login.php' method='POST' style="display:none">
 		                  
 		                  <input type="text" name="user_name" placeholder="Nom d'utilisateur " /><br />
@@ -20,12 +20,19 @@ require_once('head.php');
                               <input type="submit" class="btn btn-secondary" value="Se connecter" >
                               <button type="button" class="btn btn-secondary"><a href='index.php'>return</a></button>
 	                  </form>
-                        <form  id="signUpForm" action="utilisateurSignUp.php"  method="GET"  id="formulaireVisiteur"  style="display:none" >
-                
-                
-                              <input type="text" name="U_ID" placeholder="NOM">
+                        <form  id="signUpForm" action="utilisateurSignUp.php"  method="GET"  style="display:none" >
+                        <p>Choose your Role : </p>
+                        <div id="UserRole1">
+                        <input  id="RoleContribButton" type="button" name="Contributor" value="Contributor">
+                        </div>
+        
+                        <div id="UserRole2">
+                          <input id="RoleEventSurferButton" type="button" name="EventSurfer" value="EventSurfer">
+                     
+                        </div>
+                        <input type="hidden" name="role" value="Event">
+                        <input type="text" name="U_ID" placeholder="NOM">
     
-                
                                <input type="text" name="Pseudo" placeholder="PSEUDO">
                 
                                <input type="email" name="email" placeholder="EMAIL">
@@ -34,7 +41,7 @@ require_once('head.php');
 
                               <input type="password" name="passwd" placeholder="MOT DE PASSE">
                 
-                              <input id="submit" class="btn btn-secondary" type="submit" name="formulaireVisiteur" value="SIGN UP">
+                              <input id="submit" class="btn btn-secondary" type="submit" name="SignUpForm" value="SIGN UP">
                         </form>
                     </div>
               </div>
@@ -47,8 +54,12 @@ require_once('head.php');
     </div>
 
     <section  class="main-content">
-
-        <div id="search_bar">
+    <div id='eventInfo'style="display:none;">
+                <div id="eventInfoContent">
+                <div id="popUpClose">+</div>
+                </div>
+        </div>
+    <div id="search_bar">
             <form method = "post" id="searchForm">
             <input id = "search_content" type="text" name="search_content" placeholder="Rechercher par : date - lieu - theme">
             <input id = "search-btn" type="submit" name="search-btn" class="btn btn-danger" value="Rechercher">
@@ -56,6 +67,7 @@ require_once('head.php');
         </div>
 
         <div id="MyRows">
+      
                 <?php 
                 if(!isset($_POST['search-btn'])){
                         require_once('fetch_Evenements_Acceuil.php');
@@ -70,7 +82,7 @@ require_once('head.php');
     </section>
 
     <section id="Map">
-    <img id="markerProto" class="marker" src="../IMAGES/marker.png" width="50" height="50" />
+    <img id="markerProto" class="marker" src="../IMAGES/marker.png" width="50" height="50" style="display:none" />
             <div class="map" id="map">
             </div>
             <div id="events">

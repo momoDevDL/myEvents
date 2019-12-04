@@ -2,7 +2,7 @@
 require_once('keyLog.php');
 require_once('ConnexionBDMomo.php');
 
-    $data = file_get_contents("../SQL/evenements-publics-openagenda.json",true);
+    $data = file_get_contents("../JSON/evenements-publics-openagenda.json",true);
     $array = json_decode($data,true);
     $sql = "SELECT * FROM UTILISATEUR WHERE ROLE='CONTRIBUTEUR'";
     $sql2 = "SELECT * FROM THEME ";
@@ -20,7 +20,9 @@ require_once('ConnexionBDMomo.php');
    foreach($array as $row){
        $index = rand(0,sizeof($createur)-1);
        $index2 = rand(0,sizeof($themes)-1);
-        $sql = "INSERT INTO EVENEMENTS(E_ID,CREATEUR_ID,TITRE_EVENEMENTS,ADRESSE,LONGITUDE,LATITUDE,DATE_DEBUT,DATE_FIN,ID_THEME,IMAGE_URL)  VALUES('".$row["fields"]["uid"]."','".$createur[$index]."','".$row["fields"]["title"]."', '".$row["fields"]["placename"]."', '".$row["fields"]["latlon"][1]."','".$row["fields"]["latlon"][0]."','".$row["fields"]["date_start"]."','".$row["fields"]["date_end"]."','".$themes[$index2]."','".$row["fields"]["image"]."')";
+       $age_min = rand(10,40);
+       $nbrDePlace = rand(5,50000);
+        $sql = "INSERT INTO EVENEMENTS (CREATEUR_ID,TITRE_EVENEMENTS,ADRESSE,LONGITUDE,LATITUDE,DATE_DEBUT,DATE_FIN,NBR_DE_PLACE,AGE_MINIMUM,ID_THEME,IMAGE_URL) VALUES('".$createur[$index]."','".$row["fields"]["title"]."', '".$row["fields"]["placename"]."', '".$row["fields"]["latlon"][1]."','".$row["fields"]["latlon"][0]."','".$row["fields"]["date_start"]."','".$row["fields"]["date_end"]."','".$nbrDePlace."','".$age_min."','".$themes[$index2]."','".$row["fields"]["image"]."')";
         if($dbh->query($sql)){
             echo" DATA INSERTED CORRECTLY </br>";
         }else{

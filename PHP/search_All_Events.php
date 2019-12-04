@@ -15,12 +15,19 @@ if(isset($_POST['search_content'])){
         }
 
         $resultat="<div class='row'> ";
-        $taille = 5;
+        $taille = 6;
+        $max_events = 12;
         foreach($request as $row){
-            if( $taille == 0){
+
+            if( $taille == 0 ){
+                if($max_events > 0){
                 $resultat.= "</div> <div class='row'>";
-                $taille = 5;
+                $taille = 6;
+                }else{
+                $resultat .= "</div><div class='row' style='display :none;'> ";
+                $taille = 6;   
                 }
+            }else{
 
             $resultat.="<div class='col-md-2'>
             <div class='card' >";
@@ -41,10 +48,15 @@ if(isset($_POST['search_content'])){
             </div>
         </div>";
          $taille--;
+         $max_events--;
         }
-        
+    }
+        $resultat .="</div><div class='showMore'>
+    <button id='showMore' class='btn btn-info'>Show More</button>
+  </div>" ;
         echo $resultat;
         }else{
                 echo"no content is inserted";
         }
+        
 ?>

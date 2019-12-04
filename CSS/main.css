@@ -4,8 +4,11 @@ body{
     width:100%;
     padding-top:0px;
     margin: 0%;
+    background-color: #343a40;
 }
-
+a{
+    cursor: pointer;
+}
 nav{
     opacity: 0.8;
 }
@@ -92,7 +95,7 @@ top:20%;
 
 #search_bar{
     background-color:transparent;
-    position: absolute;
+    position: relative;
     box-sizing: border-box;    
     width: 50%;
     height: fit-content;
@@ -100,7 +103,8 @@ top:20%;
     border-radius: 10px;
     justify-content: center;
     align-content: center;
-    margin-bottom: 50px;
+    margin-bottom: 10px;
+    margin-top: 20px;
 }
 
 #searchForm{
@@ -152,17 +156,67 @@ cursor: pointer;
 
 #MyRows{
     position: relative;
-    padding-top: 50px ;
     margin-top:50px;
     width: 100%; 
     height: 100%; 
    
 }
+#eventInfo{
+    width: 100%;
+    height:100%;
+    background-color: rgba(9, 9, 10, 0.877);
+    position: fixed;
+    top:0;
+    display: none;
+    z-index: 1;
+}
 
+#eventInfoContent{
+    width: 50%;
+    height:75vh;
+    background-color:rgba(219, 228, 236, 0.959);
+    position: relative;
+    top: 10%;
+    left: 25%;
+    border-radius: 10px;
+    z-index: 3;
+    bottom: 50%;
+    color: rgb(3, 50, 92);
+}
+
+#moreInfo{
+    height: fit-content;
+}
+
+#eventInfoContent h4{
+    text-decoration: underline;  
+}
+
+  
+#T_Event{
+    color:black;
+    width:fit-content ; 
+    font-weight: bolder;
+    text-align: center;
+    margin-bottom: 30px;
+}
+  
+#eventInfoImg{
+    width: 50%;
+    height:70%;
+    border: 8px solid white;
+    float: right;
+}
+
+#moreInfo{
+    float: left;
+    height: 100%;
+}
 .showMore{
     position: relative;
     left: 47%;
     padding-bottom: 20px;
+    width: 50%;
 }
 #showMore{
     padding: 20px;
@@ -185,24 +239,31 @@ footer{
 
 
 /*********************************************************************************/
-/*-----------------------------CSS de la partie inscription------------------*/
+/*-----------------------------CSS de la partie PopUp------------------*/
 
 
 #popUp-bg{
     width: 100%;
     height:100vh;
     background-color: rgba(9, 9, 10, 0.7);
-    position: absolute;
+    position: fixed;
     top: 0;
     display: none;
     z-index: 1;
+    color : white;
+    font-family: monospace;
+    font-size: larger;
+}
+#popUp-bg p {
+    text-decoration: underline;
 }
 
 #popUpContent{
     width: 30%;
     height:fit-content;
+    padding-bottom:20px ;
     background-color:rgb(67, 130, 185);
-    position: relative;
+    position: fixed;
     top: 30%;
     left: 35%;
     border-radius: 10px;
@@ -215,8 +276,15 @@ footer{
     left:95% ;
     width: 30px;
     cursor: pointer;
-     transform : rotate(45deg);
     color: aliceblue;
+    padding-left: 5px;
+    transition:background-color 1s;
+    transform:rotate(45);
+}
+#popUpClose:hover{
+    background-color:rgb(3, 50, 92) ;
+    border-radius: 100px;
+    transform: rotate(45);
 }
 #þopUpContent form{
     width: 100%;
@@ -248,6 +316,44 @@ footer{
     left:24%;
 }
 
+#UserRole1{
+    width: 30%;
+    float:left;
+    margin-left: 20px;
+    margin-bottom: 30px;
+}
+
+#UserRole1 input{
+  margin-top:0px;
+  width: 100%;
+}
+
+#UserRole2{
+    width: 30%;
+    float:right;
+    margin-right: 70px ;
+    margin-bottom: 30px;
+}
+#UserRole2 input{
+    margin-top : 0px;
+    width: 100%;
+}
+
+#RoleEventSurferButton{
+    background-color:"white";
+    color:"black";
+    border-radius:"20px";
+    padding-top:"5px";
+    padding-bottom:"5px";
+}
+
+#RoleContribButton{
+    background-color:"white";
+    color:"black";
+    border-radius:"20px";
+    padding-top:"5px";
+    padding-bottom:"5px";
+}
 
 /*********************************************************************************/
 /*-----------------------------CSS de la partie map------------------*/
@@ -279,7 +385,7 @@ footer{
     width:15%;
     height:100%;
     float: left;
-    background-color:wheat;
+    background-color:white;
     position: fixed;
 }
 #User-dash{
@@ -288,17 +394,19 @@ footer{
 }
 
 .info{
-    background-color:rgb(67, 130, 185);
+    background-color:goldenrod;
     width:100%;
     height:22vh;
-    color:aliceblue;
-
+    color:white;
+    font-family: monospace;
 }
 
 .info p {
     position: relative;
     top:20px;
     left:20px;
+    font-size: larger;
+    color: black;
 }
 
 #profilePic{
@@ -319,10 +427,9 @@ footer{
     transition-timing-function: ease;
     border-radius: 50px;
     text-align: center;
+    color: rgb(67, 130, 185);
 }
-#onglets a:hover{
-    color: aliceblue;
-}
+
 
 #logOut{
     margin-top: 50px;
@@ -332,16 +439,17 @@ footer{
 }
 
 #dashboardFooter{
-    background-color :lightslategrey;
+    background-color :goldenrod;
     margin-top: 100%;
     height:100%;
     color: aliceblue;
+    font-size: large;
 }
 
 #Users-Content{
     height: 100%;
     width:85%;
-    background: #343a40 url('../IMAGES/group-of-people-sitting-on-chair-in-dimmed-room-1481276.jpg');
+    background: #343a40;
     float: right;
 }
 #NoUserEvents{
@@ -356,4 +464,94 @@ footer{
 #NoUserEvents  p{
     position: relative;
     top: 20px;
+}
+
+#AjoutEventPopUpClose{
+    font-size: 30px;
+    position: relative;
+    left:95% ;
+    width: 30px;
+    cursor: pointer;
+     transform : rotate(45deg);
+    color: aliceblue;
+}
+
+#ContribTable{
+    width: 70%;
+    height: 100%;
+    background-color: white;
+    margin-left: 10%;
+    margin-bottom: 50%;
+}
+
+.ContribTable{
+    width: 100%;
+    height: 100%;
+}
+
+
+.ContribTable th{
+    background-color: goldenrod;
+    padding: 5px;
+    color: black;
+}
+
+.ContribTable td{
+    padding: 8px;
+}
+.ContribTable tr:nth-child(odd){
+    background-color:rgb(67, 130, 185);
+    color: white;
+    
+}
+
+
+
+/*********************************************************************************/
+/*-----------------------------CSS de la partie Contact------------------*/
+
+#contact-container{
+    height: 100%;
+    width:70%;
+    background: rgb(36, 142, 235);
+    position: relative;
+    top:20%;
+    left:10%;
+    border-radius: 20px;
+    margin-left: 5%;
+    color:white;
+}
+
+#contact-form{
+    height: 100%;
+    margin-bottom: 30%;
+    margin-top:30%;
+    text-align: center;
+}
+
+#contact-container h2{
+    text-align: center;
+    width: 100%;
+    position: relative;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+#contact-left-inputs{
+    float:left;
+    width:50%;
+    height: 100%;
+}
+
+#contact-right-inputs{
+    float:right;
+    width:50%;
+    height: 100%;
+}
+
+.emailContent{
+    width: 60%;
+    margin-top: 10px;
+}
+#submitContactForm{
+    margin-top: 40px;
 }

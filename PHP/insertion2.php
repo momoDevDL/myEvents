@@ -1,6 +1,6 @@
 <?php
 require_once('keyLog.php');
-require_once('ConnexionBDAntoine.php');
+require_once('ConnexionBDMomo.php');
 
     $data = file_get_contents("../JSON/prototype2.json",true);
     $array = json_decode($data,true);

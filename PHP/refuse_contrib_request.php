@@ -7,7 +7,7 @@
         $uid = $_SESSION['id_user'];
 
         require_once('keyLog.php');
-        require_once('ConnexionBDAntoine.php');
+        require_once('ConnexionBDMomo.php');
         $sql ="DELETE FROM AJOUT_CONTRIB  WHERE C_ID = '$id' ";
         $res = $dbh->query($sql); 
         $sql3 = "SELECT * FROM AJOUT_CONTRIB WHERE ADMIN_ID is NULL";

@@ -1,8 +1,8 @@
 <?php
-
+session_start();
 if(isset($_POST['search_content'])){
         require_once('keyLog.php');
-        require_once('ConnexionBDAntoine.php');
+        require_once('ConnexionBDMomo.php');
         
         $titre = $_POST['search_content'];
         $sql = "SELECT * FROM EVENEMENTS WHERE TITRE_EVENEMENTS LIKE '%$titre%'";
@@ -39,10 +39,19 @@ if(isset($_POST['search_content'])){
             }
              $resultat .= " <div class='card-body'>
                             <h5 class='card-title'>".$row['TITRE_EVENEMENTS']."</h5>
-                            <p class='card-text'>".$row['ADRESSE']."</p>
-                            <form method='post' class='InscriptionForm'>
+                            <p class='card-text'>".$row['ADRESSE']."</p>";
+                            if($_SESSION['id_role']=="ADMIN"){
+                                $resultat .="<form method='post' class='SuppressionForm'>
+                                            <input type='hidden' name='hidden' value='".$row['E_ID']."'>
+                                            <input id='".$row['E_ID']."' type='submit' name='SuppressionButton' class='btn btn-danger' value='Supprimer'>
+                                            ";
+                            }else if (($_SESSION['id_role']=="VISITEUR")||(!isset($_SESSION['id_role']))){
+                                $resultat .= "<form method='post' class='InscriptionForm'>
                             <input type='hidden' name='hidden' value='".$row['E_ID']."'>
-                            <input id='".$row['E_ID']."' type='submit' name='inscriptionButton' class='btn btn-primary' value='S`inscrire'>
+                            <input id='".$row['E_ID']."' type='submit' name='inscriptionButton' class='btn btn-primary' value='S`inscrire'>";
+                            
+                            }
+                            $resultat .= "
                             </form>
                     </div>
             </div>

@@ -1,7 +1,7 @@
 <?php
     require_once('keyLog.php');
 
-    require_once('ConnexionBDAntoine.php');
+    require_once('ConnexionBDMomo.php');
     
     if(!isset($_SESSION)){session_start();}
     $User_id = isset($_SESSION['id_user']) ? $_SESSION['id_user'] : 0;
@@ -18,18 +18,20 @@
         $images[$img['THEME']] = $img['NOM']  ;
     }
     $resultat = "";
-    $resultat.="<div id='popUp-bg' >
-    <div id='popUpContent'>
-    <div id='AjoutEventPopUpClose'>+</div>
-                  <form id='logInForm' method='POST' style='display:none'>
-                      
-                      <input type='text' name='user_name' placeholder='Nom d'utilisateur ' /><br />
+    if(($_SESSION['id_role']=="CONTRIBUTEUR")){
+        $resultat.="<div id='popUp-bg' >
+        <div id='popUpContent'>
+        <div id='AjoutEventPopUpClose'>+</div>
+                      <form id='logInForm' method='POST' style='display:none'>
                           
-                      
-                      <input type='password' name='password' placeholder='Mot de passe ' /><br />
-
-                  </form></div></div>";
-    $resultat .= "<button id='ajoutEvent' type='button' class='btn btn-secondary'>Ajouter un Event</button>";
+                          <input type='text' name='user_name' placeholder='Nom d'utilisateur ' /><br />
+                              
+                          
+                          <input type='password' name='password' placeholder='Mot de passe ' /><br />
+    
+                      </form></div></div>";
+        $resultat .= "<button id='ajoutEvent' type='button' class='btn btn-secondary'>Ajouter un Event</button>";
+        }
     $max_events = 8;
     $count = 0;
     $endOfRow = true;

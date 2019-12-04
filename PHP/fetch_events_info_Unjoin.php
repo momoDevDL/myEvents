@@ -1,8 +1,9 @@
 <?php
+session_start();
 if(isset($_POST['EventID'])){
 $EID = $_POST['EventID'];
 require_once('keyLog.php');
-require_once('ConnexionBDAntoine.php');
+require_once('ConnexionBDMomo.php');
 
 $sql = "SELECT * FROM EVENEMENTS WHERE E_ID = '$EID'";
 $sql2 = "SELECT * FROM IMAGES";
@@ -22,10 +23,21 @@ $resultat .= "<h4>Starting Date : </h4><p>".$row['DATE_DEBUT']."</p>";
 $resultat .= "<h4>Ending Date: </h4><p>".$row['DATE_FIN']."</p>";
 $resultat .= "<h4>maximum number of crowd : </h4></p>".$row['NBR_DE_PLACE']."</p>";
 
-$resultat .= "<form method='post' class='DesinscriptionForm'>
-<input type='hidden' name='hidden' value='".$row['E_ID']."'>
-<input id='".$row['E_ID']."' type='submit' name='DesinscriptionButton' class='btn btn-danger' value='Se desinscrire'>
-</form></div>";
+if( ($_SESSION['id_role']=='ADMIN') || ($_SESSION['id_role']=='CONTRIBUTEUR') ){
+    $resultat .="<form method='post' class='SuppressionForm'>
+    <input type='hidden' name='hidden' value='".$row['E_ID']."'>
+    <input id='".$row['E_ID']."' type='submit' name='SuppressionButton' class='btn btn-danger' value='Supprimer'>
+    </form></div>
+    ";
+}else{
+    if($_SESSION['id_role']=='VISITEUR'){
+        $resultat .="<form method='post' class='DesinscriptionForm'>
+        <input type='hidden' name='hidden' value='".$res['E_ID']."'>
+        <input id='".$res['E_ID']."' type='submit' name='DesinscriptionButton' class='btn btn-danger' value='Se desinscrire'>
+        </form></div>
+        ";
+    }
+}
 if($row['IMAGE_URL'] !== ""){
     $resultat .= "<img id='eventInfoImg' src='".$row['IMAGE_URL']."'>";
 }else{

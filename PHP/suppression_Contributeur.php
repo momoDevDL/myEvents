@@ -6,10 +6,10 @@ if(isset($_SESSION['id_user'])){
     $id = $_POST['SuppressionContributeurButtonID'];
     $uid = $_SESSION['id_user'];
     require_once('keyLog.php');
-    require_once('ConnexionBDAntoine.php');
-    $sql ="DELETE FROM UTILISATEUR WHERE U_ID = '$id'";
+    require_once('ConnexionBDMomo.php');
+    $sql ="DELETE FROM UTILISATEUR WHERE U_ID='$id'";
     $res2 = $dbh->query($sql); 
-    $sql2 = "SELECT * FROM UTILISATEUR WHERE ROLE = 'CONTRIBUTEUR'";
+    $sql2 = "SELECT * FROM UTILISATEUR WHERE ROLE='CONTRIBUTEUR'";
     $row = $dbh->query($sql2);
     $resultat = "";
     $max_contributeur = 8;

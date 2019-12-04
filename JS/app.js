@@ -24,7 +24,7 @@ $("#searchForm").on('submit',function(e){
 
     $("body").on('click',"#popUpClose",function(e){
         e.preventDefault();
-        document.getElementById("eventInfoContent").innerHTML= "<div id='popUpClose'>+</div>";
+        document.getElementById("eventInfoContent").innerHTML= "<div id='popUpClose'>+</div><div id='circle'>  </div>";
         if(document.getElementById("eventInfo").style.display == "block" ){
                 document.getElementById("eventInfo").style.display = "none";
         }

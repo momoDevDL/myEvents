@@ -1,7 +1,7 @@
 <?php
     require_once('keyLog.php');
 
-    require_once('ConnexionBDAntoine.php');
+    require_once('ConnexionBDMomo.php');
     
     $sql = "SELECT CREATEUR_ID,TITRE_EVENEMENTS , LONGITUDE, LATITUDE FROM EVENEMENTS GROUP BY CREATEUR_ID,TITRE_EVENEMENTS,LONGITUDE,LATITUDE ";
     

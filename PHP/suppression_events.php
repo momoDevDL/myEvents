@@ -6,7 +6,7 @@
         $id = $_POST['SuppressionButtonID'];
         $uid = $_SESSION['id_user'];
         require_once('keyLog.php');
-        require_once('ConnexionBDAntoine.php');
+        require_once('ConnexionBDMomo.php');
         $sql ="DELETE FROM EVENEMENTS WHERE E_ID = '$id'";
         $res2 = $dbh->query($sql); 
         if ($_SESSION['id_role']=='ADMIN'){
@@ -29,11 +29,11 @@
     if($row){
         $resultat .= "<div class='row'> ";
         foreach($row as $res){
-            if($count <=  4 ){
+            if($count <=  5 ){
                 $resultat .= "<div class='col-md-2'><div class='card' >";
 
                 if($res['IMAGE_URL'] !== ""){
-                    $resultat .="<img src='../".$res['IMAGE_URL']."' class='card-img-top' alt='event image'>";
+                    $resultat .="<img src='".$res['IMAGE_URL']."' class='card-img-top' alt='event image'>";
                 }else{
                     $resultat .= "<img src='../IMAGES/".$images[$res['ID_THEME']]."' class='card-img-top' alt='event image'>";
                 }
@@ -64,6 +64,10 @@
     }else{
         $resultat .= "la requete a echoué";
     }
+
+    $resultat .="<div class='showMore'>
+    <button id='showMore' class='btn btn-info'>Show More</button>
+  </div>" ;
     echo $resultat;
 
 

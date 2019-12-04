@@ -37,7 +37,7 @@ $(document).ready(function(){
                 eventInfo.style.display = "none";
         }
 
-        if(document.getElementById('YourEvents').getAttribute('data-active') == 'true'){
+     if(document.getElementById('YourEvents').getAttribute('data-active') == 'true'){
             $.ajax(
                 {
                         url:"fetch_events_info_Unjoin.php",
@@ -67,7 +67,7 @@ $(document).ready(function(){
                         }
                 }
         );
-        }
+            } 
         
         
     });
@@ -312,16 +312,19 @@ $(document).ready(function(){
         console.log($(this).css("background-color"));
         $(".nav-link").each(function(){
             $(this).attr("data-active","false");
-            $(this).css("background-color","transparent");  
+            $(this).css({"background-color":"transparent",
+            "color":"rgb(67, 130, 185)"});   
         });
         $(this).attr("data-active","true");
-        $(this).css("background-color","white");
+        $(this).css({"background-color":"goldenrod",
+        "color":"white"}); 
+        $("#search_bar").css("display","none");
             $.ajax({
                     url : "fetch_contributors.php",
                     method : "POST",
                     dataType: "text",
                     success:function(data){
-                    $("#Users-Content").html(data);
+                    $("#MyRows").html(data);    
                     },
                     complete:function(data){
                         console.log(data);
@@ -339,16 +342,18 @@ $(document).ready(function(){
         console.log($(this).css("background-color"));
         $(".nav-link").each(function(){
             $(this).attr("data-active","false");
-            $(this).css("background-color","transparent");  
+            $(this).css({"background-color":"transparent",
+            "color":"rgb(67, 130, 185)"});   
         });
         $(this).attr("data-active","true");
-        $(this).css("background-color","white");
+        $(this).css({"background-color":"goldenrod",
+        "color":"white"}); 
             $.ajax({
                     url : "fetch_contributors_add_request.php",
                     method : "POST",
                     dataType: "text",
                     success:function(data){
-                    $("#Users-Content").html(data);
+                    $("#MyRows").html(data);
                     },
                     complete:function(data){
                         console.log(data);
@@ -367,7 +372,7 @@ $(document).ready(function(){
         $(".nav-link").each(function(){
             $(this).attr("data-active","false");
             $(this).css({"background-color":"transparent",
-            "color":"rgb(67, 130, 185)"}); 
+            "color":"rgb(67, 130, 185)"});   
         });
         $(this).attr("data-active","true");
         $(this).css({"background-color":"goldenrod",
@@ -501,6 +506,8 @@ $(document).ready(function(){
     e.preventDefault();
     var obj = $(this);
     var formData = 'SuppressionButtonID=' + $(this).find(">:first").val();
+    document.getElementById("eventInfoContent").innerHTML= "<div id='popUpClose'>+</div><div id='circle'>  </div>";
+    document.getElementById('eventInfo').style.display = "none";
     console.log(formData);
         $.ajax({
                 url : "suppression_events.php",
@@ -511,7 +518,7 @@ $(document).ready(function(){
                 console.log("retour de script : "+data);
                 if(data !== "<div class='row'> </div>"){
                     console.log(data);
-                    $("#Users-Content").html(data);
+                    $("#MyRows").html(data);
                     }else{
                         let html = "<div id='NoUserEvents'><p>Vous n'avez aucun evenements actuellement Veuillez consulter nos evenements dans l'ongler 'ALL EVENTS'</p></div>";
                         $("#Users-Content").html(html);
@@ -544,7 +551,7 @@ $(document).ready(function(){
                 console.log("retour de script : "+data);
                 if(data !== "<div class='row'> </div>"){
                     console.log(data);
-                    $("#Users-Content").html(data);
+                    $("#MyRows").html(data);
                     }else{
                         let html = "<div id='NoUserEvents'><p>Vous n'avez aucun evenements actuellement Veuillez consulter nos evenements dans l'ongler 'ALL EVENTS'</p></div>";
                         $("#Users-Content").html(html);

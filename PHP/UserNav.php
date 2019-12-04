@@ -14,10 +14,10 @@
         $resultat.="<a id='AllEvents' data-active='false' class='nav-link'>All Events</a>";
             
         if($_SESSION['id_role']=="ADMIN"){
-    		$resultat .= "<a id='AllContributors'  class='nav-link' data-active='false'>All Contributors</a>
+    		$resultat .= "<a id='AllContributors'  class='nav-link' data-active='true'>All Contributors</a>
     	      			  <a id='ContributorsRequests'  class='nav-link' data-active='false'>Contributors Requests</a>";
         }else {
-         	$resultat .= "<a id='YourEvents'  class='nav-link' data-active='false'>Your Events</a>
+         	$resultat .= "<a id='YourEvents'  class='nav-link' data-active='true'>Your Events</a>
     	      			  <a id='OurContributors'  class='nav-link' data-active='false'>Our Contributors</a>";
 		}
     	$resultat .= "<a  id='Contact' class='nav-link' data-active='false'>Contact Us</a>"; 

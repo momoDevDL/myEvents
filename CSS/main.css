@@ -459,6 +459,7 @@ footer{
     width:85%;
     background: #343a40;
     float: right;
+    padding-bottom: 80px;
 }
 #NoUserEvents{
     background-color: lightblue;
@@ -482,6 +483,12 @@ footer{
     cursor: pointer;
      transform : rotate(45deg);
     color: aliceblue;
+}
+
+#ajoutEvent{
+        position: relative;
+        left:40%;
+        margin-bottom: 5%;
 }
 
 #ContribTable{

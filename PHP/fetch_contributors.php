@@ -1,7 +1,7 @@
 <?php
     require_once('keyLog.php');
 
-    require_once('ConnexionBDMomo.php');
+    require_once('ConnexionBDAntoine.php');
     
     if(!isset($_SESSION)){session_start();}
     $User_id = isset($_SESSION['id_user']) ? $_SESSION['id_user'] : 0;
@@ -21,7 +21,7 @@
                                 <h5>".$res['PSEUDO']."</h5>
                                 <p class='card-text'>".$res['ROLE']."</p>
                                 ";
-                                if($_SESSION['id_role']=="ADMIN"){
+                                /*if($_SESSION['id_role']=="ADMIN"){
                                 	$resultat .="<p class='card-text'>".$res['EMAIL']."</p>
                                 				<p class='card-text'>".$res['DATE_NAISSANCE']."</p>
                                 				<form method='post' class='SuppressionContributeurForm'>
@@ -29,7 +29,7 @@
                                 				<input id='".$res['U_ID']."' type='submit' name='SuppressionContributeurButton' class='btn btn-danger' value='Supprimer'>
                                 				</form>
                                 				";
-                                }
+                                }*/
                                 $resultat .="
                                 
                         </div>

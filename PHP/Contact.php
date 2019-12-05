@@ -15,7 +15,7 @@
         </div>
 
         <label for="email"> Email :  </label>
-            <input type="text" name="email" placeholder="ckzeel@efoha.zeefm"></br>
+            <input type="text" name="email" placeholder="exemple@exemple.com"></br>
     
         <label class="emailContent" for="emailContent"> Email Content :  </label></br>
             <textarea class="emailContent" name="emailContent" placeholder="text"></textarea></br>

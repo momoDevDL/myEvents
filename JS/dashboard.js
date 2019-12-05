@@ -218,6 +218,33 @@ $(document).ready(function(){
         }
 
     });
+    
+    $("body").on('click',"#SuppressionUtilisateur",function(){
+        let response = confirm("Vous confirmé vouloir supprimer définitivement un utilisateur de la base de donné ?");
+        if(response){
+            let formData = "utilisateur_sup_id=" + $(this).parent().parent().attr('id') ;
+            console.log(formData);
+            $.ajax({
+                url : "suppression_utilisateur.php",
+                method : "POST",
+                data :formData,
+                dataType: "text",
+                success:function(data){
+                console.log(data);
+                $("#MyRows").html(data);
+                },
+                complete:function(data){
+                    console.log(data);
+                },
+                error: function(data){
+                        console.log('error');
+                        console.log(data);
+                }
+                
+        });
+        }
+
+    });
 
     $(".nav-link").each(function(){
         let itemColor = $(this).css("color");
@@ -281,7 +308,7 @@ $(document).ready(function(){
         e.preventDefault();
         console.log($(this).css("background-color"));
         $(".nav-link").each(function(){
-            $(this).attr("data-active","false");
+            $(this).attr("data-active","true");
             $(this).css({"background-color":"transparent",
             "color":"rgb(67, 130, 185)"});   
         });
@@ -307,11 +334,11 @@ $(document).ready(function(){
             });               
     });
     
-    $('body').on('click',"#AllContributors",function(e){
+    $('body').on('click',"#AllUsers",function(e){
         e.preventDefault();
         console.log($(this).css("background-color"));
         $(".nav-link").each(function(){
-            $(this).attr("data-active","false");
+            $(this).attr("data-active","true");
             $(this).css({"background-color":"transparent",
             "color":"rgb(67, 130, 185)"});   
         });
@@ -320,7 +347,7 @@ $(document).ready(function(){
         "color":"white"}); 
         $("#search_bar").css("display","none");
             $.ajax({
-                    url : "fetch_contributors.php",
+                    url : "fetch_All_Users.php",
                     method : "POST",
                     dataType: "text",
                     success:function(data){
@@ -341,7 +368,7 @@ $(document).ready(function(){
         e.preventDefault();
         console.log($(this).css("background-color"));
         $(".nav-link").each(function(){
-            $(this).attr("data-active","false");
+            $(this).attr("data-active","true");
             $(this).css({"background-color":"transparent",
             "color":"rgb(67, 130, 185)"});   
         });
@@ -537,38 +564,7 @@ $(document).ready(function(){
             });
     });
 
-    $("body").on('submit',".SuppressionContributeurForm",function(e){
-    e.preventDefault();
-    var obj = $(this);
-    var formData = 'SuppressionContributeurButtonID=' + $(this).find(">:first").val();
-    console.log(formData);
-        $.ajax({
-                url : "suppression_Contributeur.php",
-                method : "POST",
-                data :formData,
-                dataType: "text",
-                success:function(data){
-                console.log("retour de script : "+data);
-                if(data !== "<div class='row'> </div>"){
-                    console.log(data);
-                    $("#MyRows").html(data);
-                    }else{
-                        let html = "<div id='NoUserEvents'><p>Vous n'avez aucun evenements actuellement Veuillez consulter nos evenements dans l'ongler 'ALL EVENTS'</p></div>";
-                        $("#Users-Content").html(html);
-                        console.log(html);
-                    }
-
-                },
-                complete:function(data){
-                    console.log(data);
-                },
-                error: function(data){
-                        console.log('error');
-                        console.log(data);
-                }
-                    
-            });
-    });     
+     
 
        
 $('body').on('click',"#showMore",function(){

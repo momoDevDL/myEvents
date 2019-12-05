@@ -6,7 +6,7 @@
     if(!isset($_SESSION)){session_start();}
     $User_id = isset($_SESSION['id_user']) ? $_SESSION['id_user'] : 0;
     if($User_id){
-        $sql = "SELECT * , AGE(U_ID) AS age FROM UTILISATEUR ";
+        $sql = "SELECT * , AGE(U_ID) AS age FROM UTILISATEUR ORDER BY ROLE, STATUT";
         $row = $dbh->query($sql);
     
         $resultat = "";

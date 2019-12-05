@@ -9,7 +9,7 @@ if(isset($_SESSION['id_user'])){
     require_once('ConnexionBD.php');
     $sql ="DELETE FROM UTILISATEUR WHERE U_ID='$id'";
     $res2 = $dbh->query($sql); 
-    $sql2 = "SELECT * , AGE(U_ID) AS age FROM UTILISATEUR ";
+    $sql2 = "SELECT * , AGE(U_ID) AS age FROM UTILISATEUR ORDER BY ROLE, STATUT";
     $row = $dbh->query($sql2);
    	
     $resultat = "";

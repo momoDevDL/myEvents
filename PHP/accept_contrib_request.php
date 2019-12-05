@@ -6,7 +6,7 @@
         $id = $_POST['contrib_id'];
         $uid = $_SESSION['id_user'];
         require_once('keyLog.php');
-        require_once('ConnexionBDAntoine.php');
+        require_once('ConnexionBD.php');
         $sql ="UPDATE AJOUT_CONTRIB set ADMIN_ID='$uid' WHERE C_ID = '$id' ";
          $res = $dbh->query($sql); 
         $sql2 = "INSERT INTO UTILISATEUR VALUES('$id','CONTRIBUTEUR',(SELECT PSEUDO FROM AJOUT_CONTRIB WHERE C_ID = '$id'),(SELECT EMAIL FROM AJOUT_CONTRIB WHERE C_ID = '$id'),(SELECT DATE_NAISSANCE FROM AJOUT_CONTRIB WHERE C_ID = '$id'),md5((SELECT PASSWORD FROM AJOUT_CONTRIB WHERE C_ID = '$id')),'NOVICE' )";

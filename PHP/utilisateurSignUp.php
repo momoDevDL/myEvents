@@ -1,7 +1,7 @@
 <?php
 echo "BONJOUR</br>";
     require_once('keyLog.php');
-    require_once('ConnexionBDAntoine.php');
+    require_once('ConnexionBD.php');
 
     if(isset($_GET['SignUpForm'])){
         $NEW_UID = $_GET['U_ID'];

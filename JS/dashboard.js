@@ -36,8 +36,8 @@ $(document).ready(function(){
         }else{
                 eventInfo.style.display = "none";
         }
-
-     if(document.getElementById('YourEvents').getAttribute('data-active') == 'true'){
+        let YourEvents = document.getElementById('YourEvents');
+     if( YourEvents && document.getElementById('YourEvents').getAttribute('data-active') == 'true'){
             $.ajax(
                 {
                         url:"fetch_events_info_Unjoin.php",

@@ -43,16 +43,17 @@
                                 	$resultat .="<form method='post' class='SuppressionForm'>
                                 				<input type='hidden' name='hidden' value='".$res['E_ID']."'>
                                 				<input id='".$res['E_ID']."' type='submit' name='SuppressionButton' class='btn btn-danger' value='Supprimer'>
-                                				</form>
-                                				";
+                                				</form>";
                                 }else if (($_SESSION['id_role']=="VISITEUR")||(!isset($_SESSION['id_role']))){
                                 	$resultat .= "<form method='post' class='InscriptionForm'>
-                                <input type='hidden' name='hidden' value='".$res['E_ID']."'>
-                                <input id='".$res['E_ID']."' type='submit' name='inscriptionButton' class='btn btn-primary' value='".$inscrire."'>";
+                                    <input type='hidden' name='hidden' value='".$res['E_ID']."'>
+                                <input id='".$res['E_ID']."' type='submit' name='inscriptionButton' class='btn btn-primary' value='".$inscrire."'>
+                                </form> ";
                                 
-                                }
+                            }else{
+                                $resultat.="<input type='hidden' name='hidden' value='".$res['E_ID']."'>";
+                              }
                                 $resultat .= "
-                                </form>
                         </div>
                 </div>
             </div>";

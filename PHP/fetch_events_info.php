@@ -24,18 +24,19 @@ $resultat .= "<h4>Ending Date: </h4><p>".$row['DATE_FIN']."</p>";
 $resultat .= "<h4>maximum number of crowd : </h4></p>".$row['NBR_DE_PLACE']."</p>";
 
 
-if( ($_SESSION['id_role']=='ADMIN') || ($_SESSION['id_role']=='CONTRIBUTEUR') ){
+if( ($_SESSION['id_role']=='ADMIN') ){
     $resultat .="<form method='post' class='SuppressionForm'>
     <input type='hidden' name='hidden' value='".$row['E_ID']."'>
     <input id='".$row['E_ID']."' type='submit' name='SuppressionButton' class='btn btn-danger' value='Supprimer'>
-    </form>
-    ";
-}else{
-
+    </form></div>";
+}else if(($_SESSION['id_role']=='VISITEUR')){
+    
     $resultat .= "<form method='post' class='InscriptionForm'>
     <input type='hidden' name='hidden' value='".$row['E_ID']."'>
     <input id='".$row['E_ID']."' type='submit' name='inscriptionButton' class='btn btn-primary' value='S`inscrire'>
     </form></div>";
+}else{
+    $resultat.="</div>";
 }
 
 if($row['IMAGE_URL'] !== ""){

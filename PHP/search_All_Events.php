@@ -44,15 +44,17 @@ if(isset($_POST['search_content'])){
                                 $resultat .="<form method='post' class='SuppressionForm'>
                                             <input type='hidden' name='hidden' value='".$row['E_ID']."'>
                                             <input id='".$row['E_ID']."' type='submit' name='SuppressionButton' class='btn btn-danger' value='Supprimer'>
-                                            ";
+                                            </form>";
                             }else if (($_SESSION['id_role']=="VISITEUR")||(!isset($_SESSION['id_role']))){
                                 $resultat .= "<form method='post' class='InscriptionForm'>
                             <input type='hidden' name='hidden' value='".$row['E_ID']."'>
-                            <input id='".$row['E_ID']."' type='submit' name='inscriptionButton' class='btn btn-primary' value='S`inscrire'>";
+                            <input id='".$row['E_ID']."' type='submit' name='inscriptionButton' class='btn btn-primary' value='S`inscrire'>
+                            </form>";
                             
-                            }
+                            }else{
+                                $resultat.="<input type='hidden' name='hidden' value='".$row['E_ID']."'>";
+                              }
                             $resultat .= "
-                            </form>
                     </div>
             </div>
         </div>";

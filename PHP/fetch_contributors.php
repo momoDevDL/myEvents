@@ -18,7 +18,7 @@
                 $resultat .= "<div class='col-md-2'><div class='card' >";
 
                     $resultat .= "<div class='card-body'>
-                                <h5 class='card-title'>".$res['PSEUDO']."</h5>
+                                <h5>".$res['PSEUDO']."</h5>
                                 <p class='card-text'>".$res['ROLE']."</p>
                                 ";
                                 if($_SESSION['id_role']=="ADMIN"){

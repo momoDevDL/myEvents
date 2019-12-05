@@ -33,7 +33,7 @@ require_once('head.php');
       <?php
         if (isset($_SESSION['id_role'])){
       		if($_SESSION['id_role']=="ADMIN"){
-      			require_once('fetch_contributors.php');
+      			require_once('fetch_contributors_add_request.php');
       		}else{
       			require_once('fetch_events_user.php');
       		}

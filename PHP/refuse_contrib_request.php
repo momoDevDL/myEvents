@@ -7,7 +7,7 @@
         $uid = $_SESSION['id_user'];
 
         require_once('keyLog.php');
-        require_once('ConnexionBDMomo.php');
+        require_once('ConnexionBDAntoine.php');
         $sql ="DELETE FROM AJOUT_CONTRIB  WHERE C_ID = '$id' ";
         $res = $dbh->query($sql); 
         $sql3 = "SELECT * FROM AJOUT_CONTRIB WHERE ADMIN_ID is NULL";
@@ -25,15 +25,15 @@
         <th></th></tr>  ";
         foreach($row as $res){
            
-        $resultat .= "<tr id='".$res['C_ID']."'>
-        <td>".$res['C_ID']."</td>
-        <td>".$res['PSEUDO']."</td>
-        <td>".$res['EMAIL']."</td>
-        <td>".$res['DATE_NAISSANCE']."</td>
-        <td> <button id='acceptRequest' class='btn btn-primary'> ACCEPT </button></td>
-        <td><button id='RefuseRequest' class='btn btn-danger'> REFUSE </button></td>
-        
-        </tr>"; 
+       		$resultat .= "<tr id='".$res['C_ID']."'>
+        	<td>".$res['C_ID']."</td>
+        	<td>".$res['PSEUDO']."</td>
+        	<td>".$res['EMAIL']."</td>
+        	<td>".$res['DATE_NAISSANCE']."</td>
+        	<td> <button id='acceptRequest' class='btn btn-primary'> ACCEPT </button></td>
+        	<td><button id='RefuseRequest' class='btn btn-danger'> REFUSE </button></td>
+        	
+        	</tr>"; 
 
         }
         $resultat .= "</table></div>";

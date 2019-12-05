@@ -3,7 +3,7 @@ session_start();
 if(isset($_POST['EventID'])){
 $EID = $_POST['EventID'];
 require_once('keyLog.php');
-require_once('ConnexionBDMomo.php');
+require_once('ConnexionBDAntoine.php');
 
 $sql = "SELECT * FROM EVENEMENTS WHERE E_ID = '$EID'";
 $sql2 = "SELECT * FROM IMAGES";

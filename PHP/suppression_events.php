@@ -6,7 +6,7 @@
         $id = $_POST['SuppressionButtonID'];
         $uid = $_SESSION['id_user'];
         require_once('keyLog.php');
-        require_once('ConnexionBDMomo.php');
+        require_once('ConnexionBDAntoine.php');
         $sql ="DELETE FROM EVENEMENTS WHERE E_ID = '$id'";
         $res2 = $dbh->query($sql); 
         if ($_SESSION['id_role']=='ADMIN'){

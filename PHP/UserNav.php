@@ -14,8 +14,8 @@
         $resultat.="<a id='AllEvents' data-active='false' class='nav-link'>All Events</a>";
             
         if($_SESSION['id_role']=="ADMIN"){
-    		$resultat .= "<a id='AllContributors'  class='nav-link' data-active='true'>All Contributors</a>
-    	      			  <a id='ContributorsRequests'  class='nav-link' data-active='false'>Contributors Requests</a>";
+    		$resultat .= "<a id='AllUsers'  class='nav-link' data-active='false'>All Users</a>
+    	      			  <a id='ContributorsRequests'  class='nav-link' data-active='true'>Contributors Requests</a>";
         }else {
          	$resultat .= "<a id='YourEvents'  class='nav-link' data-active='true'>Your Events</a>
     	      			  <a id='OurContributors'  class='nav-link' data-active='false'>Our Contributors</a>";

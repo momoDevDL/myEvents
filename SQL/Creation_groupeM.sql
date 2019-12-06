@@ -132,6 +132,10 @@ Définion de triggers
 --------------------------------------*/
 DROP TRIGGER IF EXISTS INSERT_ON_INSCRIPTION;
 
+/*----------------------------------------------------------
+LANCEMENT DE TRIGGER QUAND AU MOMENT D'UNE INSCRIPTION 
+D'UN VISITEUR SON AGE EST INFERIEUR A L'AGE MINIMUM REQUIS POUR L'EVENT
+----------------------------------------------------------*/
 DELIMITER $$
 CREATE TRIGGER INSERT_ON_INSCRIPTION
 BEFORE INSERT ON INSCRIT
@@ -150,7 +154,11 @@ IF AGE < AGE_MIN THEN
     SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'ATTENTION, TON AGE DOIT ETRE SUPERIEUR A L AGE MINIMUM REQUIS';
 END IF; 
 
-    
+    /*----------------------------------------------------------
+LANCEMENT DE TRIGGER QUAND AU MOMENT D'UNE INSCRIPTION 
+DANS UN EVENT LE NOMBRE MAXIMAL DE PERSONNE PRESENT DANS L'EVENT 
+EST ATTEINT
+----------------------------------------------------------*/
     SET NB_DE_PLACE_MAX = (SELECT NBR_DE_PLACE  FROM EVENEMENTS WHERE E_ID = NEW.ID_EVENEMENT );
     SET NB_DE_PLACE_ACTUEL = (SELECT COUNT(*) FROM INSCRIT WHERE  ID_EVENEMENT = NEW.ID_EVENEMENT  );	
 
@@ -158,6 +166,11 @@ END IF;
        INSERT INTO LOGERROR(MESSAGE) VALUES ("ERREUR LE NOMBRE DE PLACE MAXIMUM EST ATTEINT VOUS NE POUVEZ PLUS SINSCRIRE");
        SIGNAL SQLSTATE VALUE '45001' SET MESSAGE_TEXT ="LE NOMBRE MAXIMUM EST ATTEINT DSL";
    END IF;
+
+   /*-------------------------------------------------------------------------------
+LANCEMENT D'UN TRIGGER QUI CHANGE LE STATUT D'UN UTILISATEUR PAR RAPPORT 
+AU NOMBRE DES EVENTS AUQUELS IL EST INSCRIT
+------------------------------------------------------------------------------------*/
 
 SET NBR_EVENT = ( SELECT COUNT(*) FROM INSCRIT WHERE ID_USER = NEW.ID_USER );
 
@@ -173,6 +186,11 @@ END IF;
 END $$
 DELIMITER ;
 
+
+  /*-------------------------------------------------------------------------------
+LANCEMENT D'UN TRIGGER QUI CHANGE LE STATUT D'UN CONTRIBUTEUR PAR RAPPORT 
+AU NOMBRE DES EVENTS QU'IL A CRÉE 
+------------------------------------------------------------------------------------*/
 
 DROP TRIGGER IF EXISTS MODIF_STATUT_CONTRIBUTEUR;
 

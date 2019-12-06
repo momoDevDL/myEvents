@@ -9,13 +9,21 @@
         $sql ="SELECT * FROM INSCRIT WHERE ID_EVENEMENT = '$id' AND ID_USER  = '$uid' ";
         $res = $dbh->query($sql);
         if($res->rowCount() == 0){
-            $insert = "INSERT INTO INSCRIT VALUES('$uid','$id')";
-            $row = $dbh->query($insert);
-            if($row->rowCount() == 0){
-            	header('location:JaiTrouver.php');
-        	}else{
-            	echo "INSCRIT";
-        	}
+        	$insert = "INSERT INTO INSCRIT VALUES('$uid','$id')";
+        	$valRetour = '';
+        	try { 
+    			$dbh->exec($insert); 
+			} catch (PDOException $e) { 
+				$valRetour = $dbh->errorCode();
+			}	
+			
+			if ($valRetour =='45000'){
+				echo ("Vous n'avez pas l'age pour vous inscrire !");
+			}else if ($valRetour =='45001'){
+				echo ("L'événement est plein !");
+			}else{
+				echo "INSCRIT";
+			}
         }else{
             echo "</br><p id='errorInscr' class='btn btn-danger'>vous etes deja inscrit a cet evenement impossible de se reinscrire</p> ";
         }

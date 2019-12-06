@@ -33,7 +33,7 @@ if( ($_SESSION['id_role']=='ADMIN') ){
     
     $resultat .= "<form method='post' class='InscriptionForm'>
     <input type='hidden' name='hidden' value='".$row['E_ID']."'>
-    <input id='".$row['E_ID']."' type='submit' name='inscriptionButton' class='btn btn-primary' value='S`inscrire'>
+    <input id='".$row['E_ID']."' type='submit' name='inscriptionButton' class='btn btn-primary' value='Inscription'>
     </form></div>";
 }else{
     $resultat.="</div>";

@@ -6,7 +6,7 @@
     if(!isset($_SESSION)){session_start();}
     $User_id = isset($_SESSION['id_user']) ? $_SESSION['id_user'] : 0;
     if($_SESSION['id_role']=="CONTRIBUTEUR"){
-      	$sql = "SELECT * FROM EVENEMENTS WHERE CREATEUR_ID = '$User_id' ";
+      	$sql = "SELECT * FROM EVENEMENTS WHERE CREATEUR_ID = '$User_id' ORDER BY E_ID DESC";
     }else {
     	$sql = "SELECT * FROM INSCRIT,EVENEMENTS WHERE ID_EVENEMENT = E_ID AND ID_USER = '$User_id' ";
     }

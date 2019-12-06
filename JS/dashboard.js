@@ -463,7 +463,6 @@ $(document).ready(function(){
     $("body").on('submit',".InscriptionForm",function(e){
         e.preventDefault();
         var obj = $(this);
-        //document.getElementById("eventInfoContent").innerHTML= "<div id='popUpClose'>+</div>";
         var formData = 'inscriptionButtonID=' + $(this).find(">:first").val();
         console.log(formData);
             $.ajax({
@@ -472,13 +471,17 @@ $(document).ready(function(){
                     data :formData,
                     dataType: "text",
                     success:function(data){
-                        console.log("retour de script : "+data);
-                        if(data != "INSCRIT"){
-                        obj.append(data);
-                        alert("VOUS ETES DEJA INSCRIT A CET EVENEMENT");
+                    console.log("retour de script : "+data);
+                        if(data == "INSCRIT"){
+                        	obj.find("input[name='inscriptionButton']").val(data) ;
                         }else{
-                        obj.find("input[name='inscriptionButton']").val(data) ;
-                            }
+                        	if((data =="Vous n'avez pas l'age pour vous inscrire !")||(data =="L'événement est plein !")){
+                        		alert(data);
+                        	}else{
+                        		alert('Vous êtes déja inscrit !');
+                        	}
+                        }
+                        
                         },
                     complete:function(data){
                         console.log(data);

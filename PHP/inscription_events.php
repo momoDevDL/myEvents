@@ -10,12 +10,16 @@
         $res = $dbh->query($sql);
         if($res->rowCount() == 0){
             $insert = "INSERT INTO INSCRIT VALUES('$uid','$id')";
-            $row = $dbh->query($insert);
-            if($row->rowCount() == 0){
-            	header('location:JaiTrouver.php');
-        	}else{
-            	echo "INSCRIT";
-        	}
+            try{
+                $dbh->query($insert);
+             }catch(PDOException $e){
+               $errorCode = $dbh->errorCode();
+            }
+            
+            if($errorCode != '45000')
+                echo "INSCRIT";
+            else 
+            echo "VOUS N'AVEZ PAS L'age pour";
         }else{
             echo "</br><p id='errorInscr' class='btn btn-danger'>vous etes deja inscrit a cet evenement impossible de se reinscrire</p> ";
         }

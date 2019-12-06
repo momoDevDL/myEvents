@@ -54,7 +54,7 @@ $("#searchForm").on('submit',function(e){
                         console.log("error"+ data);
                         }
                 }
-        );
+        );              
         
     });
 

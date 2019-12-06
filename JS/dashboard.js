@@ -20,7 +20,7 @@ $(document).ready(function(){
     $('body').on('click',"#ajoutEvent",function(){
         console.log(document.getElementById("popUp-bg").style.display == "none");
         document.getElementById("popUp-bg").style.display = "block";
-        document.getElementById("logInForm").style.display = "block";
+        document.getElementById("AddEventForm").style.display = "block";
         
 });
     
@@ -163,6 +163,8 @@ $(document).ready(function(){
         });
         }
     });
+
+
 
     $("body").on('click',"#acceptRequest",function(){
         let response = confirm("Do you Really want to accept this request");

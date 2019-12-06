@@ -269,12 +269,12 @@ footer{
 }
 
 #popUpContent{
-    width: 30%;
+    width: 40%;
     height:fit-content;
     padding-bottom:20px ;
     background-color:rgb(67, 130, 185);
     position: fixed;
-    top: 30%;
+    top: 10%;
     left: 35%;
     border-radius: 10px;
     z-index: 2;
@@ -489,6 +489,18 @@ footer{
         position: relative;
         left:40%;
         margin-bottom: 5%;
+}
+
+#AddEventRightForm{
+    float: left;
+    width: 50%;
+}
+
+
+#AddEventLeftForm{
+float: right ;
+width: 50%;
+
 }
 
 #ContribTable{

@@ -28,13 +28,28 @@ if(isset($_POST['search_content'])){
         $resultat.="<div id='popUp-bg' >
         <div id='popUpContent'>
         <div id='AjoutEventPopUpClose'>+</div>
-                      <form id='logInForm' method='POST' style='display:none'>
-                          
-                          <input type='text' name='user_name' placeholder='Nom d'utilisateur ' /><br />
+                      <form action='Contrib_add_event.php' id='AddEventForm' method='POST' style='display:none'>
+                      <div id='AddEventRightForm'>
+                      <input type='text' name='eventTitle' placeholder='Event title' /><br />
                               
-                          
-                          <input type='password' name='password' placeholder='Mot de passe ' /><br />
-    
+                      <input type='text' name='adresse' placeholder='adresse' /><br />
+                      <input type='text' name='theme' placeholder='theme' /><br />
+                      <input type='text' name='longitude' placeholder='longitude' /><br />
+                              
+                      <input type='text' name='latitude' placeholder='latitude' /><br />
+                      </div>
+                      <div id='AddEventLeftForm'>
+                      <input type='text' name='startingDate' placeholder='starting-date : AAAA-MM-DD' /><br />
+                      <input type='text' name='endingDate' placeholder='ending-date : AAAA-MM-DD' /><br />
+                    
+                    
+                      <input type='text' name='nbrPlace' placeholder='maximum number of attendance' /><br />
+                      <input type='text' name='minAge' placeholder='minimum age' /><br />
+                      
+                      <input type='text' name='imgUrl' placeholder='image url' /><br />
+                      </div>
+                      <input type='submit' name='submit' value='add Event'>
+                    
                       </form></div></div>";
         $resultat .= "<button id='ajoutEvent' type='button' class='btn btn-secondary'>Ajouter un Event</button>";
         }

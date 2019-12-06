@@ -32,20 +32,3 @@
 		
 	}
 ?>
-
-<!DOCTYPE html>
-<html lang="fr">
-
-<head>
-    <!-- Basic -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>
-       page login
-    </title>
-</head>
-<body>
-
-</body>
-
-</html>

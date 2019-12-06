@@ -14,7 +14,7 @@ require_once('ConnexionBD.php');
     }
     $themes = array();
     foreach($res2 as $row){
-        $themes[] = $row['ID_THEME'];
+        $themes[] = $row['NOMTHEME'];
     }   
     print_r($array);
    foreach($array as $row){
@@ -22,7 +22,7 @@ require_once('ConnexionBD.php');
        $index2 = rand(0,sizeof($themes)-1);
        $age_min = rand(10,40);
        $nbrDePlace = rand(5,50000);
-        $sql = "INSERT INTO EVENEMENTS (CREATEUR_ID,TITRE_EVENEMENTS,ADRESSE,LONGITUDE,LATITUDE,DATE_DEBUT,DATE_FIN,NBR_DE_PLACE,AGE_MINIMUM,ID_THEME,IMAGE_URL) VALUES('".$createur[$index]."','".$row["fields"]["title"]."', '".$row["fields"]["placename"]."', '".$row["fields"]["latlon"][1]."','".$row["fields"]["latlon"][0]."','".$row["fields"]["date_start"]."','".$row["fields"]["date_end"]."','".$nbrDePlace."','".$age_min."','".$themes[$index2]."','".$row["fields"]["image"]."')";
+        $sql = "INSERT INTO EVENEMENTS (CREATEUR_ID,TITRE_EVENEMENTS,ADRESSE,LONGITUDE,LATITUDE,DATE_DEBUT,DATE_FIN,NBR_DE_PLACE,AGE_MINIMUM,NOMTHEME,IMAGE_URL) VALUES('".$createur[$index]."','".$row["fields"]["title"]."', '".$row["fields"]["placename"]."', '".$row["fields"]["latlon"][1]."','".$row["fields"]["latlon"][0]."','".$row["fields"]["date_start"]."','".$row["fields"]["date_end"]."','".$nbrDePlace."','".$age_min."','".$themes[$index2]."','".$row["fields"]["image"]."')";
         if($dbh->query($sql)){
             echo" DATA INSERTED CORRECTLY </br>";
         }else{

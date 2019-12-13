@@ -310,7 +310,7 @@ $(document).ready(function(){
         e.preventDefault();
         console.log($(this).css("background-color"));
         $(".nav-link").each(function(){
-            $(this).attr("data-active","true");
+            $(this).attr("data-active","false");
             $(this).css({"background-color":"transparent",
             "color":"rgb(67, 130, 185)"});   
         });

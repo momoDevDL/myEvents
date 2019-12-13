@@ -1,7 +1,7 @@
 <div id="contact-container">
     <div id="contact-form">
         <h2>Contact Us</h2>
-        <form method="post"> 
+        <form action='sendMail.php' method="post" > 
 
         <div id="contact-left-inputs">
         <label for="first-name"> First-Name :  </label>
@@ -19,7 +19,7 @@
     
         <label class="emailContent" for="emailContent"> Email Content :  </label></br>
             <textarea class="emailContent" name="emailContent" placeholder="text"></textarea></br>
-        <input id='submitContactForm' type='button' name='submit' class='btn btn-info' value="Submit">
+        <input id='submitContactForm' type='submit' name='submit' class='btn btn-info' value="Submit">
         
         </form>
     </div>

@@ -144,7 +144,7 @@ var map = new ol.Map({
         $("#accordion").accordion({collapsible: true , heightStyle:'fill'});
 
         $("#RoleEventSurferButton").css({
-                "backgroundColor":"red",
+                "backgroundColor":"goldenrod",
                 "color":"white",
                 "border-radius":"20px",
                 "padding-top":"5px",
@@ -174,7 +174,7 @@ var map = new ol.Map({
                 });    
 
                 $("#RoleContribButton").css({
-                        "backgroundColor":"red",
+                        "backgroundColor":"goldenrod",
                         "color":"white",
                         "border-radius":"20px",
                         "padding-top":"5px",
@@ -192,7 +192,7 @@ var map = new ol.Map({
                         "padding-bottom":"5px",
                 });
                 $("#RoleEventSurferButton").css({
-                        "backgroundColor":"red",
+                        "backgroundColor":"goldenrod",
                         "color":"white",
                         "border-radius":"20px",
                         "padding-top":"5px",

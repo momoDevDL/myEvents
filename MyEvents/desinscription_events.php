@@ -5,7 +5,7 @@
     if(isset($_SESSION['id_user'])){
         $id = $_POST['DesinscriptionButtonID'];
         $uid = $_SESSION['id_user'];
-		require_once('ConnexionBD');
+		require_once('ConnexionBD.php');
         $sql ="DELETE FROM INSCRIT WHERE ID_EVENEMENT = '$id' AND ID_USER  = '$uid' ";
         $res = $dbh->query($sql); 
         $sql2 = "SELECT * FROM INSCRIT,EVENEMENTS WHERE ID_EVENEMENT = E_ID AND ID_USER = '$uid' ";

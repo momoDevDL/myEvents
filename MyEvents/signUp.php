@@ -2,7 +2,7 @@
 
 require_once('head.php');
 echo "<div id='main-signUp-header'>";
-require_once('navbar');
+require_once('navbar.php');
 echo"<h1 id='main-SignUP-title'>WELCOME</h1>";
 echo "</div>";
 ?>
@@ -14,7 +14,7 @@ echo "</div>";
 
 <div id="container-signUpV" >
 
-<form  action="utilisateurSignUp"  method="GET"  id="formulaireVisiteur" >
+<form  action="utilisateurSignUp.php"  method="GET"  id="formulaireVisiteur" >
                 
                 <!--label for="U_ID" >NOM :</label-->
                 <input type="text" name="U_ID" placeholder="NOM">
@@ -37,7 +37,7 @@ echo "</div>";
 
 <div id="container-signUpC">
 <p>L'inscription des contributeurs se fait uniquement par accord de l'admin</p>
-<form  action="utilisateurSignUp" id="formulaireContributeur" method="GET" >
+<form  action="utilisateurSignUp.php" id="formulaireContributeur" method="GET" >
                
 
                 <input type="text" name="U_ID" placeholder="DUPONT">
@@ -61,5 +61,5 @@ echo "</div>";
 </div>
 <script type="text/javascript" src="../JS/manageForm.js"></script>
 <?php
-    require_once('footer');
+    require_once('footer.php');
 ?>

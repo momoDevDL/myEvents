@@ -3,7 +3,7 @@
 	session_start();
     
 	if ($_POST) {
-		require_once('ConnexionBD');
+		require_once('ConnexionBD.php');
 		extract($_POST);
 			
 		$password = md5($password);		
@@ -14,14 +14,14 @@
 			
 			if($resultat->rowCount()==0){
 				echo 'Utilisateur ou mot de passe incorrecte';
-				header('location:../index');
+				header('location:../index.php');
 			}
 			
 			else{
 				$user = $resultat->fetch();
 				$_SESSION['id_user']=$user['U_ID'];
 				$_SESSION['id_role']=$user['ROLE'];
-				header('location:dashboardUser');
+				header('location:dashboardUser.php');
 			}
 			if($bdd){
    				 $bdd = NULL;

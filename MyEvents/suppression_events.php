@@ -5,7 +5,7 @@
     if(isset($_SESSION['id_user'])){
         $id = $_POST['SuppressionButtonID'];
         $uid = $_SESSION['id_user'];
-        require_once('ConnexionBD');
+        require_once('ConnexionBD.php');
         $sql ="DELETE FROM EVENEMENTS WHERE E_ID = '$id'";
         $res2 = $dbh->query($sql); 
         if ($_SESSION['id_role']=='ADMIN'){

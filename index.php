@@ -1,20 +1,20 @@
 <?php
         session_start();
         if(isset($_SESSION['id_user'])){
-                header("location:MyEvents/dashboardUser");
+                header("location:MyEvents/dashboardUser.php");
         }
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <?php
-require_once('MyEvent/head');
+require_once('MyEvents/head.php');
 ?>
 <body>
 <div id="popUp-bg" >
         <div id="popUpContent">
         <div id="popUpClose">+</div>
         <div id="circle">  </div>
-                      <form id="logInForm" action='MyEvent/login' method='POST' style="display:none">
+                      <form id="logInForm" action='MyEvents/login.php' method='POST' style="display:none">
 		                  
 		                  <input type="text" name="user_name" placeholder="Nom d'utilisateur " /><br />
                               
@@ -24,7 +24,7 @@ require_once('MyEvent/head');
                               <input type="submit" class="btn btn-secondary" value="Se connecter" >
                               <button type="button" class="btn btn-secondary"><a href='index'>return</a></button>
 	                  </form>
-                        <form  id="signUpForm" action="MyEvent/utilisateurSignUp"  method="GET"  style="display:none" >
+                        <form  id="signUpForm" action="MyEvents/utilisateurSignUp.php"  method="GET"  style="display:none" >
                         <p>Choose your Role : </p>
                         <div id="UserRole1">
                         <input  id="RoleContribButton" type="button" name="Contributor" value="Contributor">
@@ -53,7 +53,7 @@ require_once('MyEvent/head');
 
 <div id="main-header">
       <?php
-        require_once('MyEvent/header');
+        require_once('MyEvents/header.php');
       ?>
     </div>
 
@@ -75,7 +75,7 @@ require_once('MyEvent/head');
       
                 <?php 
                 if(!isset($_POST['search-btn'])){
-                        require_once('MyEvent/fetch_Evenements_Acceuil');
+                        require_once('MyEvents/fetch_Evenements_Acceuil.php');
                 }
                 ?>
                        
@@ -89,13 +89,13 @@ require_once('MyEvent/head');
             </div>
             <div id="events">
             <div id="accordion">
-            <?php require_once("MyEvent/fetch_events_accordion");?>
+            <?php require_once("MyEvents/fetch_events_accordion.php");?>
             </div>
             </div>
     </section>
 
      <?php
-        require_once('MyEvent/footer');
+        require_once('MyEvents/footer.php');
     ?>
 
 <script src="JSON/jquery-3.4.1.min.js" type="text/javascript"></script>

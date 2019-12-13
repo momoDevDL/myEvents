@@ -1,5 +1,5 @@
 <?php
-require_once('ConnexionBD');
+require_once('ConnexionBD.php');
 
     $data = file_get_contents("../JSON/evenements-publics-openagenda.json",true);
     $array = json_decode($data,true);

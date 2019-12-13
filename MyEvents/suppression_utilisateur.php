@@ -5,7 +5,7 @@
 if(isset($_SESSION['id_user'])){
     $id = $_POST['utilisateur_sup_id'];
     $uid = $_SESSION['id_user'];
-    require_once('ConnexionBD');
+    require_once('ConnexionBD.php');
     $sql ="DELETE FROM UTILISATEUR WHERE U_ID='$id'";
     $res2 = $dbh->query($sql); 
     $sql2 = "SELECT * , AGE(U_ID) AS age FROM UTILISATEUR ORDER BY ROLE, STATUT";

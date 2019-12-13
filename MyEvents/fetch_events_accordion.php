@@ -1,6 +1,6 @@
 <?php
 
-    require_once('ConnexionBD');
+    require_once('ConnexionBD.php');
     
     $sql = "SELECT CREATEUR_ID,TITRE_EVENEMENTS , LONGITUDE, LATITUDE FROM EVENEMENTS GROUP BY CREATEUR_ID,TITRE_EVENEMENTS,LONGITUDE,LATITUDE ";
     

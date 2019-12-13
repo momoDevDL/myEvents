@@ -1,7 +1,7 @@
 <?php
 session_start();
 if(isset($_POST['search_content'])){
-        require_once('ConnexionBD');
+        require_once('ConnexionBD.php');
         
         $titre = $_POST['search_content'];
         $sql = "SELECT * FROM EVENEMENTS WHERE TITRE_EVENEMENTS LIKE '%$titre%'";

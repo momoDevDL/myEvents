@@ -6,7 +6,7 @@
         $id = $_POST['contrib_id'];
         $uid = $_SESSION['id_user'];
 
-        require_once('ConnexionBD');
+        require_once('ConnexionBD.php');
         $sql ="DELETE FROM AJOUT_CONTRIB  WHERE C_ID = '$id' ";
         $res = $dbh->query($sql); 
         $sql3 = "SELECT * FROM AJOUT_CONTRIB WHERE ADMIN_ID is NULL";

@@ -2,21 +2,21 @@
 	session_start();
 
     if(!(isset($_SESSION['id_user']))){
-        header("location:../index");
+        header("location:../index.php");
     }
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <?php
-require_once('head');
+require_once('head.php');
 ?>
 
 <body> 
 <div id="User-dash">
   <div id="User-header">
 <?php
-        require_once('UserNav');
+        require_once('UserNav.php');
       ?>
   </div>
 
@@ -37,9 +37,9 @@ require_once('head');
       <?php
         if (isset($_SESSION['id_role'])){
       		if($_SESSION['id_role']=="ADMIN"){
-      			require_once('fetch_contributors_add_request');
+      			require_once('fetch_contributors_add_request.php');
       		}else{
-      			require_once('fetch_events_user');
+      			require_once('fetch_events_user.php');
       		}
       	}
       ?>

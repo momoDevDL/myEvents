@@ -4,7 +4,7 @@
     if(isset($_SESSION['id_user'])){
         $id = $_POST['inscriptionButtonID'];
         $uid = $_SESSION['id_user'];
-        require_once('ConnexionBD');
+        require_once('ConnexionBD.php');
         $sql ="SELECT * FROM INSCRIT WHERE ID_EVENEMENT = '$id' AND ID_USER  = '$uid' ";
         $res = $dbh->query($sql);
         if($res->rowCount() == 0){

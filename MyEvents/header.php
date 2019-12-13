@@ -1,7 +1,7 @@
 
 <header>
 <?php
-require_once('navbar');
+require_once('navbar.php');
 ?>
               <div id="main-title">
                     <h1>FULLY ENJOY</h1>

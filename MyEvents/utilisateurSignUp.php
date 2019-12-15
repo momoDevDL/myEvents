@@ -26,7 +26,7 @@ echo "BONJOUR</br>";
             $insert = "INSERT INTO AJOUT_CONTRIB(C_ID,PSEUDO,EMAIL,DATE_NAISSANCE,PASSWORD,STATUT) VALUES('$NEW_UID','".$_GET["Pseudo"]."', '".$_GET["email"]."','".$_GET["date_Naiss"]."','".md5($_GET["passwd"])."','NOVICE')";
             $dbh->query($insert) ;
             echo"<p> Votre demande va etre envoyé à l'admin pour traitement</p>";
-            header('Location:index.php');
+            header('Location:../index.php');
             }
 
         }

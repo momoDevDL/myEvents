@@ -4,7 +4,7 @@ if(isset($_POST['EventID'])){
 $EID = $_POST['EventID'];
 require_once('ConnexionBD.php');
 
-$sql = "SELECT * FROM EVENEMENTS WHERE E_ID = '$EID'";
+$sql = "SELECT *,NOMBRE_PLACE_RESTANTE(E_ID) AS NBR FROM EVENEMENTS WHERE E_ID = '$EID'";
 $sql2 = "SELECT * FROM IMAGES";
 $r = $dbh->query($sql);
 $row2 = $dbh->query($sql2);
@@ -16,12 +16,12 @@ foreach($row2 as $img){
 foreach($r as $row ){
 $resultat = "<div id ='T_Event'><h2>".$row['TITRE_EVENEMENTS']."</h2></div>";
 $resultat .= "<div id='moreInfo'><h4>Event_ID : </h4><p>".$row['E_ID']."</p>";
-$resultat .= "<h4> Created by : </h4><p>".$row['CREATEUR_ID']."</p>";
+$resultat .= "<h4> Cree Par : </h4><p>".$row['CREATEUR_ID']."</p>";
 $resultat .= "<h4>Adresse : </h4><p>".$row['ADRESSE']."</p>";
-$resultat .= "<h4>Starting Date : </h4><p>".$row['DATE_DEBUT']."</p>";
-$resultat .= "<h4>Ending Date: </h4><p>".$row['DATE_FIN']."</p>";
-$resultat .= "<h4>maximum number of crowd : </h4></p>".$row['NBR_DE_PLACE']."</p>";
-
+$resultat .= "<h4> Date Debut : </h4><p>".$row['DATE_DEBUT']."</p>";
+$resultat .= "<h4> Date Fin: </h4><p>".$row['DATE_FIN']."</p>";
+$resultat .= "<h4>Nombre maximum de place : </h4><p>".$row['NBR_DE_PLACE']."</p>";
+$resultat .= "<h4>Place Restante : </h4><p>".$row['NBR']."</p>";
 
 if( ($_SESSION['id_role']=='ADMIN') ){
     $resultat .="<form method='post' class='SuppressionForm'>

@@ -30,7 +30,9 @@
         		if ($res['ROLE']!='ADMIN'){
         			$resultat .="
         			<td><button id='SuppressionUtilisateur' class='btn btn-danger'> Supprimer </button></td>";
-        		}    
+        		}else{
+                         $resultat.="<td></td>";
+                        }
         		$resultat .="</tr>"; 
     	
     		}

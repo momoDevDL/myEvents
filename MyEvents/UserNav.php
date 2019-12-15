@@ -1,4 +1,5 @@
   
+    
     <div class="info">
         <?php 
             echo "<p id='pseudo'> Bienvenue " . $_SESSION['id_user'] ."</p>";

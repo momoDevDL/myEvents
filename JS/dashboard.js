@@ -340,7 +340,7 @@ $(document).ready(function(){
         e.preventDefault();
         console.log($(this).css("background-color"));
         $(".nav-link").each(function(){
-            $(this).attr("data-active","true");
+            $(this).attr("data-active","false");
             $(this).css({"background-color":"transparent",
             "color":"rgb(67, 130, 185)"});   
         });
@@ -370,7 +370,7 @@ $(document).ready(function(){
         e.preventDefault();
         console.log($(this).css("background-color"));
         $(".nav-link").each(function(){
-            $(this).attr("data-active","true");
+            $(this).attr("data-active","false");
             $(this).css({"background-color":"transparent",
             "color":"rgb(67, 130, 185)"});   
         });
@@ -442,12 +442,12 @@ $(document).ready(function(){
                     method : "POST",
                     dataType: "text",
                     success:function(data){
-                        if(data !== "<div class='row'> </div>"){
+                        if(data !== "<div class='row'></div>"){
                             console.log(data);
                             $("#MyRows").html(data);
                             }else{
                                 let html = "<div id='NoUserEvents'><p>Vous n'avez aucun evenements actuellement Veuillez consulter nos evenements dans l'ongler 'ALL EVENTS'</p></div>";
-                                $("#Users-Content").html(html);
+                                $("#MyRows").html(html);
                                 console.log(html);
                             }
                     },

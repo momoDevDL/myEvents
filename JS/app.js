@@ -3,7 +3,7 @@ $("#searchForm").on('submit',function(e){
         var formData = 'search_content=' + $('input[name=search_content]').val();   
         console.log(formData);
             $.ajax({
-                    url : "search_All_Events.php",
+                    url : "MyEvents/search_All_Events.php",
                     method : "POST",
                     data :formData,
                     dataType: "text",
@@ -43,7 +43,7 @@ $("#searchForm").on('submit',function(e){
         }
         $.ajax(
                 {
-                        url:"fetch_events_info.php",
+                        url:"MyEvents/fetch_events_info.php",
                         method:"POST",
                         data:formData,
                         dataType:"text",
@@ -71,7 +71,7 @@ $("#searchForm").on('submit',function(e){
         }
         $.ajax(
                 {
-                        url:"fetch_events_info.php",
+                        url:"MyEvents/fetch_events_info.php",
                         method:"POST",
                         data:formData,
                         dataType:"text",
@@ -92,7 +92,7 @@ $("#searchForm").on('submit',function(e){
         var formData = 'inscriptionButtonID=' + $(this).find(">:first").val();
         console.log(formData);
             $.ajax({
-                    url : "inscription_events.php",
+                    url : "MyEvents/inscription_events.php",
                     method : "POST",
                     data :formData,
                     dataType: "text",
@@ -200,6 +200,12 @@ var map = new ol.Map({
                 });                
         });
 
+$('body').on('click',"#ContactLink",function(){
+console.log('we are in contact page');
+               $('body').css("backgroundColor","#34") ;
+               $('#HomeLink').attr("href","../index.php");
+        });
+
         $('body').on('click',"#logIn",function(){
                 console.log(document.getElementById("popUp-bg").style.display == "none");
                 document.getElementById("popUp-bg").style.display = "block";
@@ -271,3 +277,4 @@ var map = new ol.Map({
         });
                 
 });
+			

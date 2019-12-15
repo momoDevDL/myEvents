@@ -1,7 +1,8 @@
+
 <div id="contact-container">
     <div id="contact-form">
         <h2>Contact Us</h2>
-        <form action='sendMail.php' method="post" > 
+        <form method="post" > 
 
         <div id="contact-left-inputs">
         <label for="first-name"> First-Name :  </label>
@@ -24,5 +25,10 @@
         </form>
     </div>
 
-
 </div>
+
+<script src="../JSON/jquery-3.4.1.min.js" type="text/javascript"></script>
+<script src="../JSON/jquery-ui-1.12.1/jquery-ui.js"></script>
+<script src="https://kit.fontawesome.com/08c54fbaa8.js" crossorigin="anonymous"></script>
+<script src="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v6.0.1/build/ol.js"></script>
+<script src="../JS/app.js" type="text/javascript"></script>

@@ -21,6 +21,7 @@
 				$user = $resultat->fetch();
 				$_SESSION['id_user']=$user['U_ID'];
 				$_SESSION['id_role']=$user['ROLE'];
+				$_SESSION['pseudo']=$user['PSEUDO'];
 				header('location:dashboardUser.php');
 			}
 			if($bdd){

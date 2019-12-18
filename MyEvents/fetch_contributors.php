@@ -24,7 +24,7 @@
                                 				<p class='card-text'>".$res['DATE_NAISSANCE']."</p>
                                 				<form method='post' class='SuppressionContributeurForm'>
                                 				<input type='hidden' name='hidden' value='".$res['U_ID']."'>
-                                				<input id='".$res['U_ID']."' type='submit' name='SuppressionContributeurButton' class='btn btn-danger' value='Supprimer'>
+                                				<input id='".$res['U_ID']."' type='submit' name='SuppressionContributeurButton' class='btn btn-danger' value='Delete'>
                                 				</form>
                                 				";
                                 }*/

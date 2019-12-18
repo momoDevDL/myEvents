@@ -375,6 +375,7 @@ $(document).ready(function(){
             "color":"rgb(67, 130, 185)"});   
         });
         $(this).attr("data-active","true");
+$("#search_bar").css("display","none");
         $(this).css({"background-color":"goldenrod",
         "color":"white"}); 
             $.ajax({
@@ -446,7 +447,7 @@ $(document).ready(function(){
                             console.log(data);
                             $("#MyRows").html(data);
                             }else{
-                                let html = "<div id='NoUserEvents'><p>Vous n'avez aucun evenements actuellement Veuillez consulter nos evenements dans l'ongler 'ALL EVENTS'</p></div>";
+                                let html = "<div id='NoUserEvents'><p>Vous n'avez aucun evenements actuellement Veuillez consulter nos evenements dans l'onglet 'ALL EVENTS'</p></div>";
                                 $("#MyRows").html(html);
                                 console.log(html);
                             }
@@ -473,16 +474,17 @@ $(document).ready(function(){
                     data :formData,
                     dataType: "text",
                     success:function(data){
-                    console.log("retour de script : "+data);
-                        if(data == "INSCRIT"){
-                        	obj.find("input[name='inscriptionButton']").val(data) ;
-                        }else{
-                        	if((data =="Vous n'avez pas l'age pour vous inscrire !")||(data =="L'événement est plein !")){
-                        		alert(data);
+let copieData = data ;
+                    
+console.log(data);
+console.log(copieData);
+if(copieData === "\tregistered" ){
+                        	obj.find("input[name='inscriptionButton']").val('Registered') ;
+                        }else if( (copieData ==="\tYour age is below the required age !") || (copieData ==="\tevent full !") ){
+                        		alert(copieData);
                         	}else{
-                        		alert('Vous êtes déja inscrit !');
+                        		alert("You are already registered to this event !");
                         	}
-                        }
                         
                         },
                     complete:function(data){
@@ -512,11 +514,12 @@ $(document).ready(function(){
                     dataType: "text",
                     success:function(data){
                     console.log("retour de script : "+data);
+
                     if(data !== "<div class='row'> </div>"){
                         console.log(data);
                         $("#MyRows").html(data);
                         }else{
-                            let html = "<div id='NoUserEvents'><p>Vous n'avez aucun evenements actuellement Veuillez consulter nos evenements dans l'ongler 'ALL EVENTS'</p></div>";
+                            let html = "<div id='NoUserEvents'><p>Vous n'avez aucun evenements actuellement Veuillez consulter nos evenements dans l'onglet 'ALL EVENTS'</p></div>";
                             $("#Users-Content").html(html);
                             console.log(html);
                         }
@@ -552,7 +555,7 @@ $(document).ready(function(){
                     console.log(data);
                     $("#MyRows").html(data);
                     }else{
-                        let html = "<div id='NoUserEvents'><p>Vous n'avez aucun evenements actuellement Veuillez consulter nos evenements dans l'ongler 'ALL EVENTS'</p></div>";
+                        let html = "<div id='NoUserEvents'><p>Vous n'avez aucun evenements actuellement Veuillez consulter nos evenements dans l'onglet 'ALL EVENTS'</p></div>";
                         $("#Users-Content").html(html);
                         console.log(html);
                     }

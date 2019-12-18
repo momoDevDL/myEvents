@@ -2,7 +2,7 @@
     
     <div class="info">
         <?php 
-            echo "<p id='pseudo'> Bienvenue " . $_SESSION['pseudo'] ."</p>";
+            echo "<p id='pseudo'> Welcome " .$_SESSION['pseudo']."</p>";
         ?>
         <!--img id="profilePic"  src="../IMAGES/man-holing-microphone-in-front-of-crowd-2183361.jpg"-->
         <a id="logOut" data-active="false" class='nav-link' href="logout.php">LOG OUT</a>

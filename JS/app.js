@@ -100,7 +100,7 @@ $("#searchForm").on('submit',function(e){
                         console.log("retour de script : "+data);
                         if(data != "INSCRIT"){
                         obj.append(data);
-                        alert("VOUS NE POUVEZ PAS VOUS INSCRIRE SANS AUTHENTIFICATION");
+                        alert("You cannot register without being logged in ");
                         }else{
                         obj.find("input[name='inscriptionButton']").val(data) ;
                             }
@@ -142,7 +142,7 @@ var map = new ol.Map({
     $(document).ready(function(){
 
         $("#accordion").accordion({collapsible: true , heightStyle:'fill'});
-
+$("#signUpForm input[type='hidden']").val("VISITEUR");
         $("#RoleEventSurferButton").css({
                 "backgroundColor":"goldenrod",
                 "color":"white",
@@ -275,6 +275,13 @@ console.log('we are in contact page');
                         document.getElementById("marker"+valeur).style.display = "none";
                 }
         });
+
+var erreurConnexion = document.getElementsByName("erreur")[0].value;
+console.log(erreurConnexion);
+if(erreurConnexion == "true"){
+console.log(erreurConnexion);
+	alert("User name or password are incorrect");
+}
                 
 });
-			
+				

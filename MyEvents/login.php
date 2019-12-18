@@ -14,6 +14,9 @@
 			
 			if($resultat->rowCount()==0){
 				echo 'Utilisateur ou mot de passe incorrecte';
+                                
+                                $_SESSION['ErreurPassword']= true;
+
 				header('location:../index.php');
 			}
 			
@@ -31,4 +34,4 @@
 		}
 		
 	}
-?>
+?>	

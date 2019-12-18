@@ -21,7 +21,7 @@
     $count = 0;
     $endOfRow = true;   
     $resultat = " ";
-    $inscrire = "Inscription";
+    $inscrire = "Register";
     if($row){
         $resultat .= "<div class='row'> ";
         foreach($row as $res){
@@ -40,7 +40,7 @@
                                 if($_SESSION['id_role']=="ADMIN"){
                                 	$resultat .="<form method='post' class='SuppressionForm'>
                                 				<input type='hidden' name='hidden' value='".$res['E_ID']."'>
-                                				<input id='".$res['E_ID']."' type='submit' name='SuppressionButton' class='btn btn-danger' value='Supprimer'>
+                                				<input id='".$res['E_ID']."' type='submit' name='SuppressionButton' class='btn btn-danger' value='Delete'>
                                 				</form>";
                                 }else if (($_SESSION['id_role']=="VISITEUR")||(!isset($_SESSION['id_role']))){
                                 	$resultat .= "<form method='post' class='InscriptionForm'>

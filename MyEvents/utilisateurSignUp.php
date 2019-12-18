@@ -12,7 +12,7 @@ echo "BONJOUR</br>";
         }
 
         if( $res->rowCount() != 0 ){
-            echo "Vous avez un compte existant, veuillez vous authentifier avec ce dernier ";
+            echo "Cet identifiant est déjà utilisé";
         }else{
             echo "avant insertion </br>";
             if($Role == "VISITEUR"){
@@ -20,6 +20,8 @@ echo "BONJOUR</br>";
             $dbh->query($insert);
             session_start();
             $_SESSION['id_user'] = $NEW_UID; 
+            $_SESSION['id_role'] = $Role; 
+            $_SESSION['pseudo'] = $_GET["Pseudo"];
             //echo "<script>alert('Merci pour votre inscription vous aller etre redirigé vers la page d'acceuil')</script> ";
             header('Location:dashboardUser.php');
             }else{
@@ -33,3 +35,4 @@ echo "BONJOUR</br>";
     }
     
 ?>
+		

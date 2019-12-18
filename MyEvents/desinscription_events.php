@@ -36,7 +36,7 @@
                                 <p class='card-text'>".$res['ADRESSE']."</p>
                                 <form method='post' class='DesinscriptionForm'>
                                 <input type='hidden' name='hidden' value='".$res['E_ID']."'>
-                                <input id='".$res['E_ID']."' type='submit' name='DesinscriptionButton' class='btn btn-danger' value='Se desinscrire'>
+                                <input id='".$res['E_ID']."' type='submit' name='DesinscriptionButton' class='btn btn-danger' value='Unregister'>
                                 </form>
                         </div>
                 </div>

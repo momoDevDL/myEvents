@@ -45,7 +45,7 @@
                       <input type='text' name='endingDate' placeholder='ending-date : AAAA-MM-DD' /><br />
                     
                     
-                      <input type='text' name='nbrPlace' placeholder='maximum number of attendance' /><br />
+                      <input type='text' name='nbrPlace' placeholder='Capacity' /><br />
                       <input type='text' name='minAge' placeholder='minimum age' /><br />
                       
                       <input type='text' name='imgUrl' placeholder='image url' /><br />
@@ -53,7 +53,7 @@
                       <input type='submit' name='submit' value='add Event'>
                     
                       </form></div></div>";
-        $resultat .= "<button id='ajoutEvent' type='button' class='btn btn-secondary'>Ajouter un Event</button>";
+        $resultat .= "<button id='ajoutEvent' type='button' class='btn btn-secondary'>Add an event</button>";
         }
         $resultat .= "<div class='row'> ";
         foreach($row as $res){
@@ -70,7 +70,7 @@
                                 <p class='card-text'>".$res['ADRESSE']."</p>
                                 <form method='post' class='SuppressionForm'>
                                 <input type='hidden' name='hidden' value='".$res['E_ID']."'>
-                                <input id='".$res['E_ID']."' type='submit' name='SuppressionButton' class='btn btn-danger' value='Supprimer'>
+                                <input id='".$res['E_ID']."' type='submit' name='SuppressionButton' class='btn btn-danger' value='Delete'>
                                 </form>
                         </div>
                 </div>

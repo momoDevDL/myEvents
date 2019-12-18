@@ -173,7 +173,7 @@ cursor: pointer;
 
 #eventInfoContent{
     width: 50%;
-    height:80vh;
+    height:85vh;
     background-color: goldenrod;
     position: relative;
     top: 10%;
@@ -235,8 +235,12 @@ footer{
     background-color: gray;
     position: relative;
     background-color: gray;
+color:white;
 }
 
+copyrights{
+padding-left:40%;
+}
 
 /*********************************************************************************/
 /*-----------------------------CSS de la partie PopUp------------------*/
@@ -612,4 +616,4 @@ width: 50%;
 }
 #submitContactForm{
     margin-top: 40px;
-}
+}		

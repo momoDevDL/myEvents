@@ -9,25 +9,25 @@
         $res = $dbh->query($sql);
         if($res->rowCount() == 0){
         	$insert = "INSERT INTO INSCRIT VALUES('$uid','$id')";
-        	$valRetour = '';
+        	$valRetour = "";
         	try { 
     			$dbh->exec($insert); 
 			} catch (PDOException $e) { 
 				$valRetour = $dbh->errorCode();
 			}	
 			
-			if ($valRetour =='45000'){
-				echo ("Vous n'avez pas l'age pour vous inscrire !");
-			}else if ($valRetour =='45001'){
-				echo ("L'événement est plein !");
+			if ($valRetour =="45000"){
+				print("Your age is below the required age !");
+			}else if ($valRetour =="45001"){
+				print("event full !") ;
 			}else{
-				echo "INSCRIT";
+				print("registered");
 			}
         }else{
-            echo "</br><p id='errorInscr' class='btn btn-danger'>vous etes deja inscrit a cet evenement impossible de se reinscrire</p> ";
+            echo "</br><p id='errorInscr' class='btn btn-danger'>You are already registered for this event</p> ";
         }
     }else{
-        echo "</br><p id='errorInscr' class = 'btn btn-danger'>vous ne pouvez pas s'inscrire sans authentification</p>";
+        echo "</br><p id='errorInscr' class = 'btn btn-danger'>You cannot register without being logged in </p>";
     }
 
 ?>

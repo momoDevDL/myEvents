@@ -16,7 +16,7 @@ if(isset($_SESSION['id_user'])){
         $resultat .= "<div id='AllUsersTable'><table class='UsersTable'>
         <tr>
         <th>Role</th> 
-        <th>Statut</th>
+        <th>Status</th>
         <th>U_Id</th> 
         <th>Pseudo</th> 
         <th>Age</th> 
@@ -34,8 +34,10 @@ if(isset($_SESSION['id_user'])){
         <td>".$res['EMAIL']."</td>";
         if ($res['ROLE']!='ADMIN'){
         	$resultat .="
-        	<td><button id='SuppressionUtilisateur' class='btn btn-danger'> Supprimer </button></td>";
-        }    
+        	<td><button id='SuppressionUtilisateur' class='btn btn-danger'> Delete </button></td>";
+        }else{
+$resultat .= "<td></td>";
+}
         $resultat .="</tr>"; 
     
     }

@@ -18,7 +18,7 @@
         <tr>
         <th>ID_Contributor</th> 
         <th>PSEUDO</th> 
-        <th>DATE_NAISSANCE</th> 
+        <th>Birthday</th> 
         <th>EMAIL</th>
         <th></th>
         <th></th></tr>  ";
